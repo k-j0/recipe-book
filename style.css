@@ -1,7 +1,9 @@
+
 * {
     margin: 0;
     color: #334;
     font-family: sans-serif;
+    cursor: url("/assets/cursor.png") 0 0, default;
 }
 h3 {
     margin-top: .5em;
@@ -9,6 +11,17 @@ h3 {
 hr {
     margin-top: .5em;
     margin-bottom: .5em;
+}
+
+a {
+    cursor: url("/assets/cursor-pointer.png") 2 2, pointer;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }
 
 .tablecloth {
@@ -86,4 +99,5 @@ hr {
 .categories > a > img {
     width: 20em;
     max-width: 90%;
+    cursor: url("/assets/cursor-pointer.png") 2 2, pointer;
 }
