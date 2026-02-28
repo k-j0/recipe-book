@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cson Recipe Book</title>
+    <link rel="icon" href="data:;base64,">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tablecloth"></div>
+    <div id="container">
+        <img class="banner" src="/assets/banner.png" alt="banner">
+        <a href="..">Main menu</a><br/>
+    </div>
+    <script type="module">
+        import { recipes } from './src/recipes.ts';
+        const container = globalThis.document.getElementById('container');
+        const url = ''+globalThis.location;
+        const questionMarkIdx = url.lastIndexOf('?');
+        const id = url.substring(questionMarkIdx+1);
+        const recipe = recipes.find(recipe => recipe.id === id);
+        container.append(recipe?.toHtml() ?? globalThis.document.createTextNode('No such recipe yet...'));
+    </script>
+</body>
+</html>

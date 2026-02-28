@@ -5,66 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cson Recipe Book</title>
     <link rel="icon" href="data:;base64,">
-    <style>
-        * {
-            margin: 0;
-            color: #334;
-            font-family: sans-serif;
-        }
-        h3 {
-            margin-top: .5em;
-        }
-        hr {
-            margin-top: .5em;
-            margin-bottom: .5em;
-        }
-        
-        .tablecloth {
-            --colour-cream: rgb(233, 222, 186);
-            --colour-red: #f002;
-            --size: 70px;
-            position: fixed;
-            inset: -200%;
-            width: 500%;
-            height: 500%;
-            background-color: var(--colour-cream);
-            background-image:
-                repeating-linear-gradient(
-                    0deg,
-                    var(--colour-red),
-                    var(--colour-red) calc(var(--size) * 0.3),
-                    transparent calc(var(--size) * 0.3),
-                    transparent calc(var(--size) * 0.35),
-                    var(--colour-red) calc(var(--size) * 0.35),
-                    var(--colour-red) calc(var(--size) * 0.38),
-                    transparent calc(var(--size) * 0.38),
-                    transparent calc(var(--size) * 0.92),
-                    var(--colour-red) calc(var(--size) * 0.92),
-                    var(--colour-red) calc(var(--size) * 0.95),
-                    transparent calc(var(--size) * 0.95),
-                    transparent var(--size)
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    var(--colour-red),
-                    var(--colour-red) calc(var(--size) * 0.3),
-                    transparent calc(var(--size) * 0.3),
-                    transparent calc(var(--size) * 0.35),
-                    var(--colour-red) calc(var(--size) * 0.35),
-                    var(--colour-red) calc(var(--size) * 0.38),
-                    transparent calc(var(--size) * 0.38),
-                    transparent calc(var(--size) * 0.92),
-                    var(--colour-red) calc(var(--size) * 0.92),
-                    var(--colour-red) calc(var(--size) * 0.95),
-                    transparent calc(var(--size) * 0.95),
-                    transparent var(--size)
-                );
-            transform: rotate(30deg);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="tablecloth"></div>
+    <div id="container">
+        <img class="banner" src="/assets/banner.png" alt="banner">
+    </div>
     <script type="module">
         import { main } from './src/main.ts';
         main().catch(err => console.error(err));

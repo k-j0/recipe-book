@@ -1,5 +1,5 @@
 
-import { apple, aubergine, blackPepper, broccoli, brownBeans, burritoSeasoning, butterBeans, carrot, celery, chiliPepper, chiliPowder, chineseCabbage, coconutAminos, coconutMilk, cookingOil, corianderSeeds, couscous, cumin, cuminSeeds, freshParsley, garlic, garlicPowder, ginger, greenOnion, kale, kimchi, lemonJuice, limeJuice, mapleSyrup, mushroom, noodles, nori, oatCream, oliveOil, onion, oregano, paprika, rice, salt, soupCube, spaghetti, spinach, sriracha, stock, tomato, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakingPowder, blackPepper, breadFlour, broccoli, brownBeans, burritoSeasoning, butter, butterBeans, caneSugar, carrot, cauliflower, celery, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, couscous, cumin, cuminSeeds, dryYeast, flour, freshParsley, garlic, garlicPowder, ginger, gratedCheese, greenOnion, iceCube, kale, kimchi, lemon, lemonJuice, limeJuice, mapleSyrup, mushroom, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, potato, powderedSugar, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -123,5 +123,126 @@ export const recipes = [
             .addTo('pot while the greens cook'),
         'Blend the soup a little (optional), in which case reserve half the greens to add after blending',
         'Serve & enjoy :)',
+    ]),
+    new Recipe('Pannenkoeken', Recipe.Category.Breakfast, [
+        flour.g(150)
+            .and(bakingPowder.tsp(2))
+            .and(salt)
+            .addTo('a mixing bowl and mix'),
+        oatMilk.ml(300)
+            .and(cookingOil.tbsp(2))
+            .addTo('mixing bowl and mix'),
+        'Let rest for 5 minutes',
+        'Add a bit of oil into a pancake pan and warm for at least 5 minutes',
+        'Cook pancakes',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Lemonade', Recipe.Category.Drink, [
+        sugar.g(350)
+            .and(water.ml(240))
+            .addTo('a small pot, boil while mixing to dissolve sugar, and set aside to cool'),
+        lemon.take(9).juiced()
+            .and(water.ml(1600).iceCold())
+            .addTo('a pitcher, along with the syrup'),
+        iceCube.take(10).addTo('pitcher'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Chocolate Chip Cookies', Recipe.Category.Dessert, [
+        flour.g(120)
+            .and(bakingPowder.tsp(.5))
+            .and(salt.tsp(.25))
+            .and(sugar.g(50))
+            .and(caneSugar.g(45))
+            .and(chocolateChips.g(60))
+            .and(oatMilk.tbsp(2))
+            .and(butter.tbsp(2).melted())
+            .and(vanillaExtract.tsp(.25))
+            .addTo('a mixing bowl, and stir to form a wet dough'),
+        'Freeze or refrigerate until dough is cold',
+        'Preheat oven to 160°C',
+        'Bake 11 mins',
+        'Let cool for 10 mins',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Kakaós Csiga', Recipe.Category.Dessert, [
+        sugar.tbsp(1)
+            .and(bakingPowder.g(30))
+            .and(oatMilk.ml(150))
+            .addTo('a mixing bowl, mix, and let rise for 10 minutes'),
+        flour.g(300)
+            .and(butter.g(30).melted())
+            .and(powderedSugar.g(30))
+            .addTo('another bowl, mix, and add milk mixture'),
+        'Knead to form a smooth dough (10-15 mins)',
+        'Cover and let rise in a warm spot until doubled in volume',
+        'Preheat oven to 180°C',
+        butter.melted()
+            .and(powderedSugar)
+            .and(cocoaPowder)
+            .addTo('a bowl and mix'),
+        'Roll out dough and spread the chocolate mixture onto it',
+        'Roll up tightly and slice into ~1cm thick snails',
+        'Brush with more butter',
+        'Bake for 18 mins',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Baked Potato', Recipe.Category.Meal, [
+        'Preheat oven to 220°C',
+        potato.take(2).pierced()
+            .addTo('a baking tray lined with parchment paper'),
+        cookingOil
+            .and(salt)
+            .addTo('potatoes by rubbing it around'),
+        'Bake for 45 mins, until easily pierced through with a fork',
+        'Let potatoes rest a few minutes',
+        'Turn up oven to 250°C',
+        'Cut open potatoes and mash up insides with a fork slightly',
+        butter.optional()
+            .and(gratedCheese)
+            .addTo('potatoes and put back in the oven for 5-10 mins'),
+        sourCream
+            .and(greenOnion)
+            .addTo('potatoes and bake again for a couple minutes'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Bread', Recipe.Category.Breakfast, [
+        water.ml(350)
+            .and(dryYeast.tsp(2))
+            .addTo('a mixing bowl and whisk'),
+        'Let rest for 5 mins',
+        breadFlour.g(460)
+            .and(salt)
+            .addTo('bowl and mix with a wooden spoon'),
+        sunflowerSeeds.optional()
+            .addTo('bowl'),
+        'Rest dough in fridge overnight, or at room temp for a few hours',
+        'Preheat oven to 220°C',
+        'Bake 23 mins',
+        'Let rest for at least 30 mins',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Cauliflower Alfredo Pasta', Recipe.Category.Meal, [
+        'Preheat oven to 180°C',
+        cauliflower.take(1).chopped()
+            .and(garlic.take(4, 'unpeeled cloves'))
+            .addTo('a roasting tray'),
+        oliveOil.and(salt).addTo('tray'),
+        'Roast for 20 mins',
+        'Blend roasted cauliflower, squeezing in garlic flesh',
+        lemon.take(.5).juiced()
+            .and(soupCube.take(1))
+            .and(onionPowder)
+            .and(oatMilk.ml(360))
+            .and(blackPepper)
+            .addTo('blender and blend until creamy, adding more salt, pepper, or milk as needed'),
+        spaghetti.cooked()
+            .addTo('sauce in a pan and heat through'),
+        freshParsley.addTo('pasta'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Vanilla syrup', Recipe.Category.Drink, [
+        sugar.and(water).addTo('a small pot at 1:1 quantities and heat until combined'),
+        vanillaExtract.addTo('pot once off the heat and stir'),
+        'Store vanilla syrup in a jar in the fridge; use in iced vanilla lattes, teas, etc',
     ]),
 ];

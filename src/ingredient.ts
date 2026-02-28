@@ -11,43 +11,59 @@ export class Ingredient {
     }
     
     take (pcs: number, unit: string | Ingredient.QtyUnit.Pcs = Ingredient.QtyUnit.Pcs) {
-        return new Ingredient(this.original ?? this, this.name, [pcs, unit], this.state, this.isOptional);
+        return new Ingredient(this.original, this.name, [pcs, unit], this.state, this.isOptional);
     }
     
     g (g: number) {
-        return new Ingredient(this.original ?? this, this.name, [g, Ingredient.QtyUnit.Grams], this.state, this.isOptional);
+        return new Ingredient(this.original, this.name, [g, Ingredient.QtyUnit.Grams], this.state, this.isOptional);
     }
     
     ml (ml: number) {
-        return new Ingredient(this.original ?? this, this.name, [ml, Ingredient.QtyUnit.Millilitres], this.state, this.isOptional);
+        return new Ingredient(this.original, this.name, [ml, Ingredient.QtyUnit.Millilitres], this.state, this.isOptional);
     }
     
     tbsp (tbsp: number) {
-        return new Ingredient(this.original ?? this, this.name, [tbsp, Ingredient.QtyUnit.Tbsp], this.state, this.isOptional);
+        return new Ingredient(this.original, this.name, [tbsp, Ingredient.QtyUnit.Tbsp], this.state, this.isOptional);
     }
     
     tsp (tsp: number) {
-        return new Ingredient(this.original ?? this, this.name, [tsp, Ingredient.QtyUnit.Tsp], this.state, this.isOptional);
+        return new Ingredient(this.original, this.name, [tsp, Ingredient.QtyUnit.Tsp], this.state, this.isOptional);
     }
     
     chopped () {
-        return new Ingredient(this.original ?? this, this.name, this.qty, Ingredient.State.Chopped, this.isOptional);
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Chopped, this.isOptional);
     }
     
     minced () {
-        return new Ingredient(this.original ?? this, this.name, this.qty, Ingredient.State.Minced, this.isOptional);
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Minced, this.isOptional);
     }
     
     crumbled () {
-        return new Ingredient(this.original ?? this, this.name, this.qty, Ingredient.State.Crumbled, this.isOptional);
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Crumbled, this.isOptional);
     }
     
     cooked () {
-        return new Ingredient(this.original ?? this, this.name, this.qty, Ingredient.State.Cooked, this.isOptional);
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Cooked, this.isOptional);
+    }
+    
+    juiced () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Juiced, this.isOptional);
+    }
+    
+    iceCold () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.IceCold, this.isOptional);
+    }
+    
+    melted () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Melted, this.isOptional);
+    }
+    
+    pierced () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Pierced, this.isOptional);
     }
     
     optional () {
-        return new Ingredient(this.original ?? this, this.name, this.qty, this.state, true);
+        return new Ingredient(this.original, this.name, this.qty, this.state, true);
     }
     
     addTo (to: string) {
@@ -101,6 +117,18 @@ export class Ingredient {
                 case Ingredient.State.Cooked:
                     ret += 'cooked ';
                     break;
+                case Ingredient.State.Juiced:
+                    ret += 'juiced ';
+                    break;
+                case Ingredient.State.IceCold:
+                    ret += 'ice-cold ';
+                    break;
+                case Ingredient.State.Melted:
+                    ret += 'melted ';
+                    break;
+                case Ingredient.State.Pierced:
+                    ret += 'pierced ';
+                    break;
                 default:
                     this.state satisfies never;
             }
@@ -132,6 +160,10 @@ export namespace Ingredient {
         Minced,
         Crumbled,
         Cooked,
+        Juiced,
+        IceCold,
+        Melted,
+        Pierced,
     }
     
 }

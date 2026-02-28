@@ -7,6 +7,25 @@ export class Recipe {
     
     constructor (readonly name: string, readonly category: Recipe.Category, readonly steps: (RecipeStep | string)[], readonly additionalIngredients: Ingredient[] = []) {}
     
+    get id () {
+        return this.name.toLowerCase()
+            .replace(/\s/g, '-')
+            .replace(/&/g, 'and')
+            .replace(/[àáâãä]/g, 'a')
+            .replace(/å/g, 'aa')
+            .replace(/æ/g, 'ae')
+            .replace(/ç/g, 'c')
+            .replace(/[èéêë]/g, 'e')
+            .replace(/[ìíîï]/g, 'i')
+            .replace(/ñ/g, 'n')
+            .replace(/[òóôõ]/g, 'o')
+            .replace(/[öø]/g, 'oe')
+            .replace(/[ùúûü]/g, 'u')
+            .replace(/[ýÿ]/g, 'y')
+            .replace(/þ/g, 'th')
+            .replace(/[^a-z-]/g, '');
+    }
+    
     toHtml () {
         const div = globalThis.document.createElement('div');
         
@@ -58,6 +77,7 @@ export namespace Recipe {
         Meal,
         Side,
         Dessert,
+        Breakfast,
         Drink,
     }
     
