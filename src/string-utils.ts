@@ -19,4 +19,8 @@ export namespace StringUtils {
         }
     }
     
+    export function capitalize (str: string) {
+        return [...str].map((char, i) => i === 0 ? char.toUpperCase() : char.toLowerCase()).join('');
+    }
+    
 }

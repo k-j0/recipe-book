@@ -74,11 +74,11 @@ export class Recipe {
 export namespace Recipe {
     
     export enum Category {
-        Meal,
-        Side,
-        Dessert,
-        Breakfast,
-        Drink,
+        Meal = 'meal',
+        Side = 'side',
+        Dessert = 'dessert',
+        Breakfast = 'breakfast',
+        Drink = 'drink',
     }
     
 }
