@@ -5,6 +5,11 @@
     font-family: sans-serif;
     cursor: url("/assets/cursor.png") 0 0, default;
 }
+
+::selection {
+    background-color: #f002;
+}
+
 h3 {
     margin-top: .5em;
 }
