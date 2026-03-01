@@ -62,6 +62,22 @@ export class Ingredient {
         return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Pierced, this.isOptional);
     }
     
+    shredded () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Shredded, this.isOptional);
+    }
+    
+    halved () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Halved, this.isOptional);
+    }
+    
+    grated () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Grated, this.isOptional);
+    }
+    
+    sliced () {
+        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Sliced, this.isOptional);
+    }
+    
     optional () {
         return new Ingredient(this.original, this.name, this.qty, this.state, true);
     }
@@ -129,6 +145,18 @@ export class Ingredient {
                 case Ingredient.State.Pierced:
                     ret += 'pierced ';
                     break;
+                case Ingredient.State.Shredded:
+                    ret += 'shredded ';
+                    break;
+                case Ingredient.State.Halved:
+                    ret += 'halved ';
+                    break;
+                case Ingredient.State.Grated:
+                    ret += 'grated ';
+                    break;
+                case Ingredient.State.Sliced:
+                    ret += 'sliced ';
+                    break;
                 default:
                     this.state satisfies never;
             }
@@ -164,6 +192,10 @@ export namespace Ingredient {
         IceCold,
         Melted,
         Pierced,
+        Shredded,
+        Halved,
+        Grated,
+        Sliced,
     }
     
 }

@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakingPowder, blackPepper, breadFlour, broccoli, brownBeans, burritoSeasoning, butter, butterBeans, caneSugar, carrot, cauliflower, celery, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, couscous, cumin, cuminSeeds, dryYeast, flour, freshParsley, garlic, garlicPowder, ginger, gratedCheese, greenOnion, iceCube, kale, kimchi, lemon, lemonJuice, limeJuice, mapleSyrup, mushroom, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, potato, powderedSugar, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakingPowder, bellPepper, blackOlives, blackPepper, bread, breadFlour, broccoli, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, potato, powderedSugar, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -198,7 +198,7 @@ export const recipes = [
         'Turn up oven to 250°C',
         'Cut open potatoes and mash up insides with a fork slightly',
         butter.optional()
-            .and(gratedCheese)
+            .and(cheese.grated())
             .addTo('potatoes and put back in the oven for 5-10 mins'),
         sourCream
             .and(greenOnion)
@@ -244,5 +244,96 @@ export const recipes = [
         sugar.and(water).addTo('a small pot at 1:1 quantities and heat until combined'),
         vanillaExtract.addTo('pot once off the heat and stir'),
         'Store vanilla syrup in a jar in the fridge; use in iced vanilla lattes, teas, etc',
+    ]),
+    new Recipe('Gazpacho', Recipe.Category.Side, [
+        cucumber.take(1).chopped()
+            .and(tomato.take(4).chopped())
+            .and(bellPepper.take(.5).chopped())
+            .and(garlic.take(2, 'cloves'))
+            .and(celery.take(1, 'stalk').chopped())
+            .and(lemonJuice.tbsp(1))
+            .and(onion.take(.5).chopped())
+            .addTo('a blender and blend'),
+        vinegar.tbsp(3)
+            .and(salt)
+            .and(blackPepper)
+            .addTo('blender and blend until smooth'),
+        'Chill for at least 30 mins',
+        oliveOil.optional()
+            .and(freshBasil.optional())
+            .and(freshParsley.optional())
+            .addTo('gazpacho'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Lime Coleslaw', Recipe.Category.Side, [
+        cabbage.take(1).shredded()
+            .and(limeJuice)
+            .and(oliveOil.ml(30))
+            .and(salt)
+            .and(blackPepper)
+            .and(garlicPowder)
+            .addTo('a bowl and combine'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Green Chutney', Recipe.Category.Side, [
+        freshMint
+            .and(freshCoriander)
+            .and(ginger)
+            .and(garlic)
+            .and(cumin)
+            .and(salt)
+            .and(limeJuice)
+            .and(chiliPepper.optional())
+            .and(water)
+            .addTo('blender and blend until coarse'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Pasta Salad', Recipe.Category.Meal, [
+        pasta.cooked()
+            .and(cherryTomato.halved())
+            .and(bellPepper.chopped())
+            .and(courgette.chopped())
+            .and(greenOnion.chopped())
+            .and(cheese.grated())
+            .and(blackOlives.halved())
+            .and(freshBasil)
+            .and(freshParsley)
+            .and(oliveOil)
+            .and(salt)
+            .and(blackPepper)
+            .addTo('a bowl and combine'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Bean burgers', Recipe.Category.Meal, [
+        kidneyBeans.take(2, 'tins')
+            .addTo('a mixing bowl and mash'),
+        carrot.take(1).minced().optional()
+            .and(onion.take(1).chopped())
+            .and(bellPepper.take(1).chopped().optional())
+            .and(garlic.tbsp(1).minced())
+            .addTo('bowl and combine'),
+        sriracha.tbsp(6)
+            .and(cornstarch.tbsp(2))
+            .and(water.tbsp(2))
+            .and(chiliPowder.tsp(2))
+            .and(cumin.tsp(2))
+            .and(coconutAminos.tsp(2))
+            .and(salt)
+            .and(blackPepper)
+            .addTo('a separate bowl and whisk'),
+        bread.take(2, 'slices').crumbled()
+            .addTo('bean mixture alongside sauce and combine'),
+        flour.g(190)
+            .addTo('mixture and stir to form a batter'),
+        'Fry burgers in a pan (freeze the rest of the batter to use at a later time)',
+        cheese.sliced()
+            .addTo('burgers in the pan as they finish cooking'),
+        'Serve in buns with lettuce, tomatoes, ketchup and/or mayo & enjoy :)',
+    ], [
+        lettuce.shredded(),
+        tomato.sliced(),
+        ketchup,
+        mayo.optional(),
+        burgerBuns,
     ]),
 ];
