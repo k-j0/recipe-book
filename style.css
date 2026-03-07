@@ -123,3 +123,14 @@ input[type='checkbox']:checked {
 ol {
     padding-left: 2em;
 }
+
+.ts-wrapper {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+.ts-control {
+    background: #fff8 !important;
+}
+.ts-control > * {
+    cursor: unset;
+}

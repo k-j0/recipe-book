@@ -26,6 +26,13 @@ export class Recipe {
             .replace(/[^a-z-]/g, '');
     }
     
+    get ingredients () {
+        return [
+            ...this.steps.flatMap(s => s instanceof RecipeStep ? s.associatedIngredients : []),
+            ...this.additionalIngredients,
+        ];
+    }
+    
     toHtml () {
         const div = globalThis.document.createElement('div');
         
@@ -52,10 +59,7 @@ export class Recipe {
         ingredientsTitle.innerText = 'Ingredients';
         div.append(ingredientsTitle);
         
-        const allIngredients = [
-            ...this.steps.flatMap(s => s instanceof RecipeStep ? s.associatedIngredients : []),
-            ...this.additionalIngredients,
-        ];
+        const allIngredients = this.ingredients;
         allIngredients.sort((a, b) => ingredients.indexOf(a.original) - ingredients.indexOf(b.original));
         const ingredientsContainer = globalThis.document.createElement('div');
         for (let i = 0; i < allIngredients.length; ++i) {
