@@ -19,7 +19,7 @@ hr {
 }
 
 a {
-    cursor: url("cursor-pointer.png") 2 2, pointer;
+    cursor: url("../cursor-pointer.png") 2 2, pointer;
 }
 
 a {
