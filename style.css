@@ -106,3 +106,20 @@ a:hover {
     max-width: 90%;
     cursor: url("../cursor-pointer.png") 2 2, pointer;
 }
+
+input[type='checkbox'] {
+    appearance: none;
+    margin: 0;
+    border: 2px solid currentColor;
+    width: .6em;
+    height: .6em;
+    border-radius: .3em;
+    margin-left: 1.3em;
+}
+input[type='checkbox']:checked {
+    background: currentColor;
+}
+
+ol {
+    padding-left: 2em;
+}

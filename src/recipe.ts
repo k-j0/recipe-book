@@ -57,11 +57,23 @@ export class Recipe {
             ...this.additionalIngredients,
         ];
         allIngredients.sort((a, b) => ingredients.indexOf(a.original) - ingredients.indexOf(b.original));
-        const ingredientsContainer = globalThis.document.createElement('ul');
-        for (const ingredient of allIngredients) {
-            const li = globalThis.document.createElement('li');
-            li.innerText = ingredient.toString();
-            ingredientsContainer.append(li);
+        const ingredientsContainer = globalThis.document.createElement('div');
+        for (let i = 0; i < allIngredients.length; ++i) {
+            const p = globalThis.document.createElement('p');
+            const checkbox = globalThis.document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `ingredient-${i}`;
+            checkbox.checked = false;
+            p.append(checkbox);
+            const label = globalThis.document.createElement('label');
+            label.setAttribute('for', `ingredient-${i}`);
+            label.innerText = allIngredients[i].toString();
+            label.style.paddingLeft = '.5em';
+            p.append(label);
+            checkbox.addEventListener('change', () => {
+                label.style.textDecoration = checkbox.checked ? 'line-through' : 'unset';
+            });
+            ingredientsContainer.append(p);
         }
         div.append(ingredientsContainer);
         
@@ -77,6 +89,11 @@ export class Recipe {
             } else {
                 li.innerText = step.toString();
             }
+            let struck = false;
+            li.addEventListener('click', () => {
+                struck = !struck;
+                li.style.textDecoration = struck ? 'line-through' : 'unset';
+            });
             steps.append(li);
         }
         div.append(steps);
