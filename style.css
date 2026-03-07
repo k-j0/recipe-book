@@ -72,7 +72,7 @@ a:hover {
     transform: rotate(30deg);
 }
 
-#container {
+.container {
     width: 95%;
     max-width: 900px;
     left: 50%;

@@ -9,59 +9,13 @@
 </head>
 <body>
     <div class="tablecloth"></div>
-    <div id="container">
+    <div class="container">
         <img class="banner" src="/assets/banner.png" alt="banner">
+        <div id="content"></div>
     </div>
     <script type="module">
-        import { Recipe } from './src/recipe.ts';
-        import { recipes } from './src/recipes.ts';
-        import { StringUtils } from './src/string-utils.ts';
-        
-        const container = globalThis.document.getElementById('container');
-        
-        const url = ''+globalThis.location;
-        const questionMarkIdx = url.lastIndexOf('?');
-        const categoryId = url.substring(questionMarkIdx+1);
-        const category = Object.keys(Recipe.Category).find(key => Recipe.Category[key] === categoryId) === undefined ? null : categoryId;
-        
-        if (category === null) {
-            
-            const categoryGrid = globalThis.document.createElement('div');
-            categoryGrid.classList.add('categories');
-            for (const key of Object.keys(Recipe.Category)) {
-                const category = Recipe.Category[key];
-                const a = globalThis.document.createElement('a');
-                a.href = '?' + category;
-                
-                const img = new Image;
-                img.src = `/assets/${category}.png`;
-                a.append(img);
-                
-                a.append(globalThis.document.createTextNode(StringUtils.capitalize(category + 's')));
-                
-                categoryGrid.append(a);
-            }
-            container.append(categoryGrid);
-        } else {
-            
-            const back = globalThis.document.createElement('a');
-            back.href = '?';
-            back.innerText = 'Main menu';
-            container.append(back);
-            
-            const h2 = globalThis.document.createElement('h2');
-            h2.innerText = StringUtils.capitalize(category) + ' recipes';
-            container.append(h2);
-            
-            for (const recipe of recipes.filter(r => r.category === category)) {
-                const a = globalThis.document.createElement('a');
-                a.href = `/recipe.html?${recipe.id}`;
-                a.innerText = recipe.name;
-                a.style.display = 'block';
-                container.append(a);
-            }
-        }
-        
+        import { main } from './src/main.ts';
+        main().catch(err => console.error(err));
     </script>
 </body>
 </html>
