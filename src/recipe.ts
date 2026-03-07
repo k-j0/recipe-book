@@ -33,6 +33,21 @@ export class Recipe {
         title.innerText = this.name;
         div.append(title);
         
+        const shareData = { url: `${globalThis.location.pathname}?${this.id}` };
+        if ('canShare' in globalThis.navigator && 'share' in globalThis.navigator && globalThis.navigator.canShare(shareData)) {
+            const share = globalThis.document.createElement('a');
+            share.href = 'javascript:void(0)';
+            share.innerText = 'Share';
+            share.addEventListener('click', async () => {
+                try {
+                    await globalThis.navigator.share(shareData);
+                } catch (err) {
+                    console.error(`Failed to share recipe url:`, err);
+                }
+            });
+            div.append(share);
+        }
+        
         const ingredientsTitle = globalThis.document.createElement('h3');
         ingredientsTitle.innerText = 'Ingredients';
         div.append(ingredientsTitle);
