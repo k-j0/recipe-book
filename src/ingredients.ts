@@ -39,6 +39,7 @@ export const cherryTomato = ingr('cherry tomato');
 export const chiliPepper = ingr('chili pepper');
 export const bellPepper = ingr('bell pepper');
 export const mushroom = ingr('mushroom');
+export const shiitake = ingr('shiitake');
 export const cucumber = ingr('cucumber');
 export const lettuce = ingr('lettuce');
 
@@ -66,16 +67,20 @@ export const noodles = ingr('noodles');
 export const spaghetti = ingr('spaghetti');
 export const rice = ingr('rice');
 export const couscous = ingr('couscous');
+export const quinoa = ingr('quinoa');
 
 export const kidneyBeans = ingr('kidney beans');
 export const brownBeans = ingr('brown beans');
+export const blackBeans = ingr('black beans');
 export const butterBeans = ingr('butter beans');
 export const cannelliniBeans = ingr('cannellini beans');
+export const pintoBeans = ingr('pinto beans');
 export const bakedBeans = ingr('baked beans');
 
 export const kimchi = ingr('kimchi');
 export const blackOlives = ingr('black olives');
 export const mushroomPatty = ingr('mushroom patty');
+export const seitan = ingr('seitan');
 
 export const mapleSyrup = ingr('maple syrup');
 export const flour = ingr('flour');
@@ -94,14 +99,17 @@ export const pieDough = ingr('pie dough');
 export const rhum = ingr('rhum');
 
 export const vinegar = ingr('vinegar');
+export const riceVinegar = ingr('rice vinegar');
 export const coconutAminos = ingr('coconut aminos');
 export const ketchup = ingr('ketchup');
 export const mayo = ingr('mayo');
 export const tomatoPaste = ingr('tomato paste');
 export const tomatoSauce = ingr('tomato sauce');
+export const rostadLök = ingr('rostad lök (fried onions)');
 
 export const bread = ingr('bread');
 export const burgerBuns = ingr('burger buns');
+export const roti = ingr('roti');
 
 export const soupCube = ingr('soup cube');
 export const stock = ingr('stock');

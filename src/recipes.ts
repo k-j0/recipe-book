@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, potato, powderedSugar, redOnion, rhubarb, rhum, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, pintoBeans, potato, powderedSugar, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seitan, shiitake, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -502,5 +502,112 @@ export const recipes = [
         'Take off cover and turn up heat to medium',
         'Cook for 10-15 mins into a thick sauce',
         'Serve with black pepper & enjoy :)',
+    ]),
+    new Recipe('Vegetable Noodle Soup', Recipe.Category.Meal, [
+        water.ml(1800)
+            .and(soupCube.take(2))
+            .and(coconutAminos.tbsp(2))
+            .and(ginger.tbsp(1).minced())
+            .and(sriracha)
+            .addTo('wok and bring to boil'),
+        garlic.take(2, 'cloves').minced()
+            .and(onion.take(1).julienned())
+            .and(shiitake.take(8).chopped())
+            .and(bokChoy.take(2).chopped())
+            .and(seitan.g(500).chopped().optional())
+            .addTo('wok and cook for 5-10 mins (add bok choy leaves once stems have softened a bit)'),
+        'Serve with noodles & enjoy :)',
+    ], [
+        noodles,
+    ]),
+    new Recipe('Refried Beans', Recipe.Category.Meal, [
+        'Rinse the beans (no need to soak)',
+        pintoBeans.g(230).dry()
+            .and(onion.take(1).halved())
+            .and(garlic.take(3, 'cloves'))
+            .and(bayLeaf)
+            .and(freshCoriander)
+            .and(salt)
+            .addTo('a pot, cover with water, and bring to a boil'),
+        'Reduce to a simmer and cook, covered, for 2-3 hours',
+        'Remove bay leaf',
+        cookingOil.addTo('a wok and heat over medium heat'),
+        onion.take(1).chopped().addTo('wok'),
+        garlic.take(1, 'clove').minced()
+            .and(cumin)
+            .and(paprika)
+            .and(blackPepper)
+            .addTo('wok'),
+        'Add the beans (without too much of the water), and mash them',
+        'Keep cooking for a few minutes, adding more of the bean cooking water if it looks a bit dry',
+        limeJuice.addTo('beans'),
+        'Serve & enjoy :)',
+    ], [
+        water,
+    ]),
+    new Recipe('Chow Mein', Recipe.Category.Meal, [
+        cookingOil
+            .and(seitan.chopped())
+            .addTo('a wok and cook until golden, then set seitan aside in a bowl'),
+        chineseCabbage.take(.5).sliced()
+            .and(carrot.take(2).julienned())
+            .and(bokChoy.take(1).sliced())
+            .addTo('wok (bok choy stems only) and cook for 5 mins'),
+        noodles.addTo('a pot and cook'),
+        'Add seitan back into wok and warm it up',
+        coconutAminos.tbsp(6)
+            .and(water.tbsp(4))
+            .and(oliveOil.tbsp(4))
+            .and(soupCube.take(1).crumbled())
+            .and(cornstarch.tsp(4))
+            .and(mapleSyrup.tsp(4))
+            .and(sriracha.tsp(2))
+            .and(riceVinegar.tsp(2))
+            .addTo('a bowl and mix thoroughly'),
+        'Add sauce and noodles into wok and cook another couple minutes',
+        'Serve with green onions and enjoy :)',
+    ], [
+        greenOnion.take(4).chopped(),
+    ]),
+    new Recipe('Spinach & Kale Saag', Recipe.Category.Meal, [
+        water.ml(240)
+            .and(kale.g(350).chopped())
+            .and(ginger.minced())
+            .and(garlic.take(4, 'cloves'))
+            .and(chiliPepper.take(2))
+            .and(salt)
+            .addTo('a pot and cook, covered, on medium heat for 20 mins'),
+        spinach.g(300).addTo('pot and cook for another 5 mins'),
+        'Blend until chunky, then bring back on low heat',
+        butter.addTo('a pan and heat up'),
+        cuminSeeds.addTo('pan, cooking until they start sizzling'),
+        redOnion.take(1).chopped()
+            .and(garlic.take(4, 'cloves').minced())
+            .and(ginger.minced())
+            .addTo('pan and cook until onions are soft'),
+        chiliPowder.and(tomato.take(2).chopped())
+            .addTo('pan and continue cooking until tomatoes break down'),
+        'Mix into the saag',
+        cornstarch.tbsp(3).addTo('a bowl with water and mix'),
+        'Mix into the saag and cook for another few minutes, adding salt to taste',
+        lemonJuice
+            .and(rostadLök)
+            .addTo('saag off the heat'),
+        'Serve with roti and rice & enjoy :)',
+    ], [
+        rice,
+        roti,
+    ]),
+    new Recipe('Corn Roti', Recipe.Category.Side, [
+        cornstarch.g(240)
+            .and(salt)
+            .addTo('a bowl'),
+        'Boil water and mix/knead into the cornstarch, a little at a time, until a firm dough forms',
+        'Shape dough into small balls and flatten out onto a sheet of baking paper, aiming for even thickness',
+        butter.addTo('a pan and heat up until melted'),
+        'Cook each roti on each side for a few minutes, until golden and crispy',
+        'Serve & enjoy :)',
+    ], [
+        water,
     ]),
 ];

@@ -30,52 +30,64 @@ export class Ingredient {
         return new Ingredient(this.original, this.name, [tsp, Ingredient.QtyUnit.Tsp], this.state, this.isOptional);
     }
     
+    private withState (state: Ingredient.State) {
+        return new Ingredient(this.original, this.name, this.qty, state, this.isOptional);
+    }
+    
     chopped () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Chopped, this.isOptional);
+        return this.withState(Ingredient.State.Chopped);
     }
     
     minced () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Minced, this.isOptional);
+        return this.withState(Ingredient.State.Minced);
     }
     
     crumbled () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Crumbled, this.isOptional);
+        return this.withState(Ingredient.State.Crumbled);
     }
     
     cooked () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Cooked, this.isOptional);
+        return this.withState(Ingredient.State.Cooked);
     }
     
     juiced () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Juiced, this.isOptional);
+        return this.withState(Ingredient.State.Juiced);
     }
     
     iceCold () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.IceCold, this.isOptional);
+        return this.withState(Ingredient.State.IceCold);
     }
     
     melted () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Melted, this.isOptional);
+        return this.withState(Ingredient.State.Melted);
     }
     
     pierced () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Pierced, this.isOptional);
+        return this.withState(Ingredient.State.Pierced);
     }
     
     shredded () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Shredded, this.isOptional);
+        return this.withState(Ingredient.State.Shredded);
     }
     
     halved () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Halved, this.isOptional);
+        return this.withState(Ingredient.State.Halved);
     }
     
     grated () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Grated, this.isOptional);
+        return this.withState(Ingredient.State.Grated);
     }
     
     sliced () {
-        return new Ingredient(this.original, this.name, this.qty, Ingredient.State.Sliced, this.isOptional);
+        return this.withState(Ingredient.State.Sliced);
+    }
+    
+    julienned () {
+        return this.withState(Ingredient.State.Julienned);
+    }
+    
+    dry () {
+        return this.withState(Ingredient.State.Dry);
     }
     
     optional () {
@@ -157,6 +169,12 @@ export class Ingredient {
                 case Ingredient.State.Sliced:
                     ret += 'sliced ';
                     break;
+                case Ingredient.State.Julienned:
+                    ret += 'julienned ';
+                    break;
+                case Ingredient.State.Dry:
+                    ret += 'dry ';
+                    break;
                 default:
                     this.state satisfies never;
             }
@@ -196,6 +214,8 @@ export namespace Ingredient {
         Halved,
         Grated,
         Sliced,
+        Julienned,
+        Dry,
     }
     
 }
