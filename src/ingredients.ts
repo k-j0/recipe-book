@@ -71,6 +71,7 @@ export const kidneyBeans = ingr('kidney beans');
 export const brownBeans = ingr('brown beans');
 export const butterBeans = ingr('butter beans');
 export const cannelliniBeans = ingr('cannellini beans');
+export const bakedBeans = ingr('baked beans');
 
 export const kimchi = ingr('kimchi');
 export const blackOlives = ingr('black olives');

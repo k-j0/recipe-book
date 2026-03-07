@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, potato, powderedSugar, redOnion, rhubarb, rhum, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, potato, powderedSugar, redOnion, rhubarb, rhum, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -203,7 +203,9 @@ export const recipes = [
         sourCream
             .and(greenOnion)
             .addTo('potatoes and bake again for a couple minutes'),
-        'Serve & enjoy :)',
+        'Serve with baked beans and more sour cream & enjoy :)',
+    ], [
+        bakedBeans,
     ]),
     new Recipe('Bread', Recipe.Category.Breakfast, [
         water.ml(350)
