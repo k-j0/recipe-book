@@ -45,7 +45,10 @@ function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category
     for (const recipe of recipes.filter(r => r.category === category)) {
         const a = globalThis.document.createElement('a');
         a.href = 'javascript:void(0)';
-        a.addEventListener('click', () => showRecipe(contentDiv, recipe));
+        a.addEventListener('click', () => {
+            history.replaceState({}, '', `${globalThis.location.pathname}?${recipe.id}`);
+            showRecipe(contentDiv, recipe);
+        });
         a.innerText = recipe.name;
         a.style.display = 'block';
         contentDiv.append(a);
@@ -55,18 +58,21 @@ function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category
 function showRecipe (contentDiv: HTMLDivElement, recipe: Recipe) {
     contentDiv.innerHTML = '';
     
-    showBackButton(contentDiv, `Back to ${recipe.category}s`, () => showCategoryMenu(contentDiv, recipe.category));
+    showBackButton(contentDiv, `Back to ${recipe.category}s`, () => {
+        history.replaceState({}, '', globalThis.location.pathname);
+        showCategoryMenu(contentDiv, recipe.category);
+    });
     
     contentDiv.append(recipe.toHtml());
 }
 
 export async function main () {
-
+    
     const contentDiv = globalThis.document.getElementById('content');
     if (contentDiv === null || !(contentDiv instanceof HTMLDivElement)) {
         throw new Error(`No #content found in DOM`);
     }
-
+    
     const url = ''+globalThis.location;
     const questionMarkIdx = url.lastIndexOf('?');
     const recipeId = url.substring(questionMarkIdx+1);
