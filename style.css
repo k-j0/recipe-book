@@ -3,7 +3,7 @@
     margin: 0;
     color: #334;
     font-family: sans-serif;
-    cursor: url("/assets/cursor.png") 0 0, default;
+    cursor: url("cursor.png") 0 0, default;
 }
 
 ::selection {
@@ -19,7 +19,7 @@ hr {
 }
 
 a {
-    cursor: url("/assets/cursor-pointer.png") 2 2, pointer;
+    cursor: url("cursor-pointer.png") 2 2, pointer;
 }
 
 a {
@@ -104,5 +104,5 @@ a:hover {
 .categories > a > img {
     width: 20em;
     max-width: 90%;
-    cursor: url("/assets/cursor-pointer.png") 2 2, pointer;
+    cursor: url("cursor-pointer.png") 2 2, pointer;
 }

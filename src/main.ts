@@ -23,7 +23,7 @@ function showMainMenu (contentDiv: HTMLDivElement) {
         a.addEventListener('click', () => showCategoryMenu(contentDiv, category));
         
         const img = new Image;
-        img.src = `/assets/${category}.png`;
+        img.src = `${category}.png`;
         a.append(img);
         
         a.append(globalThis.document.createTextNode(StringUtils.capitalize(category + 's')));
