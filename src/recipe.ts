@@ -79,6 +79,7 @@ export namespace Recipe {
         Dessert = 'dessert',
         Breakfast = 'breakfast',
         Drink = 'drink',
+        Component = 'component',
     }
     
 }

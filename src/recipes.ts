@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakingPowder, bellPepper, blackOlives, blackPepper, bread, breadFlour, broccoli, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, potato, powderedSugar, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, potato, powderedSugar, redOnion, rhubarb, rhum, rice, salt, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -240,7 +240,7 @@ export const recipes = [
         freshParsley.addTo('pasta'),
         'Serve & enjoy :)',
     ]),
-    new Recipe('Vanilla syrup', Recipe.Category.Drink, [
+    new Recipe('Vanilla syrup', Recipe.Category.Component, [
         sugar.and(water).addTo('a small pot at 1:1 quantities and heat until combined'),
         vanillaExtract.addTo('pot once off the heat and stir'),
         'Store vanilla syrup in a jar in the fridge; use in iced vanilla lattes, teas, etc',
@@ -335,5 +335,170 @@ export const recipes = [
         ketchup,
         mayo.optional(),
         burgerBuns,
+    ]),
+    new Recipe('Rhubarb, Apple & Pear Crumble', Recipe.Category.Dessert, [
+        'Preheat oven to 200°C',
+        rhubarb.g(500).chopped()
+            .and(sugar.g(100))
+            .addTo('a lidded pot and simmer on low heat for 15 mins'),
+        apple.take(2).chopped()
+            .and(pear.take(2).chopped())
+            .addTo('a baking dish alongside rhubarb (can either keep rhubarb and apples/pears separate on either side, or mix them together'),
+        flour.g(300)
+            .and(butter.g(150).iceCold())
+            .addTo('a mixing bowl and rub with fingers until reaching a breadcrumb consistency'),
+        'Add crumble topping to baking dish',
+        caneSugar.tbsp(5)
+            .addTo('baking dish, sprinkling it on top of the crumble topping'),
+        'Bake for 40 mins',
+        'Serve with custard & enjoy :)',
+    ], [
+        custard,
+    ]),
+    new Recipe('Csokipite', Recipe.Category.Dessert, [
+        sugar.g(50)
+            .and(cornstarch.tbsp(4))
+            .and(cocoaPowder.tbsp(3))
+            .and(coconutMilk.take(1, 'tin'))
+            .and(oatMilk.ml(240))
+            .and(salt)
+            .addTo('a pot'),
+        'Whisk to combine and keep whisking on medium heat 10-15 mins while it thickens',
+        'Take off heat',
+        chocolateChips.g(125)
+            .and(vanillaExtract.tsp(1))
+            .addTo('pot and stir to combine'),
+        'Chill for at least 3 hours',
+        'Preheat oven to 190°C',
+        pieDough.pierced().addTo('a pie dish'),
+        'Bake dough in oven for 15 mins',
+        'Add chocolate filling and bake for a further 15 mins',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Pie Dough', Recipe.Category.Component, [
+        flour.g(400)
+            .and(sugar.tbsp(1))
+            .and(salt)
+            .addTo('a mixing bowl and mix'),
+        butter.tbsp(8).iceCold()
+            .addTo('mixing bowl and combine'),
+        water.iceCold()
+            .addTo('bowl a little at a time, stirring to combine, until the dough holds together with no dry flour remaining'),
+        'Refrigerate for at least 30 minutes before using',
+    ]),
+    new Recipe('Bok Choy and Kale Fried Rice', Recipe.Category.Meal, [
+        cookingOil.tbsp(3)
+            .addTo('a small pot and heat'),
+        garlic.take(1, 'head').minced()
+            .and(salt)
+            .addTo('pot once oil is hot'),
+        'Cook until garlic is golden (~10 mins)',
+        'Strain garlic over wok and set aside',
+        kale.chopped()
+            .and(bokChoy.chopped())
+            .and(broccolini.chopped().optional())
+            .and(spinach.optional())
+            .and(rice.cooked())
+            .and(chiliPepper.minced().optional())
+            .and(coconutAminos)
+            .and(salt)
+            .and(blackPepper)
+            .addTo('wok and cook over high heat for a couple minutes'),
+        'Sprinkle with fried garlic',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Creamy Beans & Kale Rice', Recipe.Category.Meal, [
+        onion.take(1).chopped()
+            .and(salt)
+            .addTo('wok'),
+        'Cook for a few minutes, adding water as needed',
+        garlic.take(6, 'cloves').minced()
+            .and(driedThyme.tbsp(1))
+            .addTo('wok'),
+        coconutMilk.take(1, 'tin')
+            .and(soupCube.take(1))
+            .and(tomatoPaste.tbsp(3))
+            .and(tomatoSauce.tbsp(4))
+            .and(cannelliniBeans.take(2, 'tins'))
+            .and(cumin)
+            .and(paprika)
+            .and(blackPepper)
+            .and(salt)
+            .addTo('wok and stir to combine'),
+        kale.g(500).chopped()
+            .addTo('wok'),
+        'Bring to a simmer and cook until thickened',
+        'Serve with rice & enjoy :)',
+    ], [
+        rice.cooked(),
+    ]),
+    new Recipe('Cannelés', Recipe.Category.Dessert, [
+        'Preheat oven to 240°C',
+        flour.g(125)
+            .and(caneSugar.g(250))
+            .and(oatMilk.ml(250))
+            .and(oatCream.ml(150))
+            .and(cookingOil.ml(100))
+            .and(vanillaExtract.tsp(3))
+            .and(rhum.tbsp(5).optional())
+            .addTo('a mixing bowl and whisk until well combined'),
+        'Grease a cannelé mould with butter',
+        'Pour batter into mould',
+        'Bake for 10 mins',
+        'Lower oven temperature to 180°C and bake for another 30 mins',
+        'Let cannelés cool down fully',
+        'Hold mould upside down over a large plate or chopping board to get cannelés out',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Töltött Káposzta', Recipe.Category.Meal, [
+        redOnion.take(2).chopped()
+            .and(cookingOil)
+            .and(salt)
+            .and(blackPepper)
+            .addTo('a pan and fry for a few minutes'),
+        garlic.minced()
+            .addTo('pan'),
+        rice.cooked()
+            .and(mushroom.take(8).minced())
+            .and(mushroomPatty.take(2).minced())
+            .and(tomatoPaste.tbsp(4))
+            .and(paprika)
+            .and(bayLeaf.take(2))
+            .addTo('pan, stir'),
+        'Heat until warmed and set aside',
+        'Remove the stem/core of the cabbage by cutting around it with a knife in a cone shape, and separate out leaves',
+        'Cut off any remaining hard stem parts from the cabbage leaves',
+        water.addTo('a large pot and boil'),
+        cabbage.take(1)
+            .addTo('pot, a few leaves at a time, cooking for 4 mins each time and setting boiled leaves aside to cool'),
+        'Preheat oven to 160°C',
+        'Remove bay leaves from mushroom & rice filling',
+        'Roll mushroom & rice filling into cabbage leaves (as you would a burrito) and arrange into an oven dish',
+        'Shred remaining cabbage, mix with any remaining filling, and add on top of arranged rolled leaves',
+        'Sprinkle paprika and garlic powder on top, and cover with water',
+        'Cover with aluminium foil and bake for 2 hours',
+        'Serve & enjoy :)',
+    ], [
+        garlicPowder,
+    ]),
+    new Recipe('Paprikás Krumpli', Recipe.Category.Meal, [
+        potato.g(350).chopped()
+            .addTo('a bowl of cold water'),
+        onion.take(1).chopped()
+            .and(cookingOil)
+            .and(salt)
+            .addTo('a pot and cook on medium heat until soft'),
+        paprika.addTo('pot while off the heat'),
+        garlic.take(1, 'clove').minced()
+            .addTo('pot, stir, and put back on the heat'),
+        'Drain potatoes and add to pot',
+        'Cook for a minute then fill pot with water to cover potatoes',
+        salt.and(blackPepper).addTo('pot'),
+        tomato.take(1).minced()
+            .addTo('pot'),
+        'Bring to a boil then reduce heat to a simmer for 30 mins, slightly uncovered',
+        'Take off cover and turn up heat to medium',
+        'Cook for 10-15 mins into a thick sauce',
+        'Serve with black pepper & enjoy :)',
     ]),
 ];
