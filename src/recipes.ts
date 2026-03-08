@@ -62,7 +62,7 @@ export const recipes = [
         greenOnion.take(4).chopped().addTo('wok'),
         'Serve & enjoy :)',
     ]),
-    new Recipe('Shroom sauce spag', Recipe.Category.Meal, [
+    new Recipe('Shroom Sauce Spag', Recipe.Category.Meal, [
         cookingOil
             .and(onion.take(1).chopped())
             .and(mushroom.g(250).minced())
