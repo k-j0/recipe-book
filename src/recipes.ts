@@ -242,7 +242,7 @@ export const recipes = [
         freshParsley.addTo('pasta'),
         'Serve & enjoy :)',
     ]),
-    new Recipe('Vanilla syrup', Recipe.Category.Component, [
+    new Recipe('Vanilla Syrup', Recipe.Category.Component, [
         sugar.and(water).addTo('a small pot at 1:1 quantities and heat until combined'),
         vanillaExtract.addTo('pot once off the heat and stir'),
         'Store vanilla syrup in a jar in the fridge; use in iced vanilla lattes, teas, etc',
@@ -306,7 +306,7 @@ export const recipes = [
             .addTo('a bowl and combine'),
         'Serve & enjoy :)',
     ]),
-    new Recipe('Bean burgers', Recipe.Category.Meal, [
+    new Recipe('Bean Burgers', Recipe.Category.Meal, [
         kidneyBeans.take(2, 'tins')
             .addTo('a mixing bowl and mash'),
         carrot.take(1).minced().optional()
