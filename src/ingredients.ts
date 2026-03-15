@@ -47,6 +47,7 @@ export const freshCoriander = ingr('fresh coriander');
 export const freshParsley = ingr('fresh parsley');
 export const freshBasil = ingr('fresh basil');
 export const freshMint = ingr('fresh mint');
+export const freshRosemary = ingr('fresh rosemary');
 
 export const apple = ingr('apple');
 export const pear = ingr('pear');
@@ -97,6 +98,7 @@ export const cornstarch = ingr('cornstarch');
 export const sunflowerSeeds = ingr('sunflower seeds');
 export const pieDough = ingr('pie dough');
 export const rhum = ingr('rhum');
+export const coffee = ingr('coffee');
 
 export const vinegar = ingr('vinegar');
 export const riceVinegar = ingr('rice vinegar');
@@ -128,4 +130,5 @@ export const cuminSeeds = ingr('cumin seeds');
 export const driedThyme = ingr('dried thyme');
 export const bayLeaf = ingr('bay leaf');
 export const salt = ingr('salt');
+export const seaSalt = ingr('sea salt (flaky)');
 export const blackPepper = ingr('black pepper');

@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, pintoBeans, potato, powderedSugar, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seitan, shiitake, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, pintoBeans, potato, powderedSugar, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, shiitake, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -609,5 +609,113 @@ export const recipes = [
         'Serve & enjoy :)',
     ], [
         water,
+    ]),
+    new Recipe('Foccaccia', Recipe.Category.Side, [
+        breadFlour.g(510)
+            .and(salt.g(12))
+            .and(dryYeast.tsp(2))
+            .addTo('a mixing bowl and whisk'),
+        'Add lukewarm water (half boiled, half cold) and combine with a soft spatula',
+        'Cover bowl and let it rest for 30 mins',
+        'Using wet hands, stretch and fold (from sides to centre) dough until smooth',
+        'Cover the surface of the dough with olive oil and rub it on',
+        'Cover bowl and let it rest at room temperature for 1.5-2 hrs',
+        'Grease a baking dish with butter',
+        'Add 2 tbsp olive oil to baking dish',
+        'Release & deflate the dough from sides of bowl with a fork, rotating the bowl and pulling the dough together to form a ball',
+        'Place dough into baking dish and roll it in the oil to coat it',
+        'Let rest at room temperature for 30 mins (no need to cover)',
+        'Preheat oven to 220°C',
+        'Rub 2 tbsp olive oil over surface of dough, creating dimples with fingers',
+        freshRosemary.optional()
+            .and(redOnion.take(1).sliced().optional())
+            .and(blackOlives.halved().optional())
+            .and(cherryTomato.halved().optional())
+            .and(seaSalt)
+            .addTo('top of the dough'),
+        'Bake for 30 mins',
+        'Let it cool for 10 mins',
+        'Serve & enjoy :) (note: reheat 15 mins in oven at 175°C on subsequent days)',
+    ], [
+        water.ml(450),
+        oliveOil,
+        butter,
+    ]),
+    new Recipe('Tiramisu', Recipe.Category.Dessert, [
+        'Ahead of time (ideally 24 hrs prior to baking), place coconut milk tins in the fridge',
+        'Preheat oven to 160°C',
+        flour.g(250)
+            .and(bakingPowder.tsp(2))
+            .and(salt.tsp(.5))
+            .and(sugar.g(135))
+            .addTo('a mixing bowl and whisk to combine'),
+        oatMilk.ml(200)
+            .and(cookingOil.ml(70))
+            .and(vanillaExtract.tsp(.5))
+            .addTo('bowl and whisk until fully combind'),
+        'Pour onto a lined baking tray, spreading evenly to cover a rectangular area',
+        'Bake until an inserted knife comes out dry (20-25 mins), then leave to cool',
+        'Brew 150ml strong black coffee, add 1 tbsp sugar, and leave to cool',
+        coconutMilk.g(900)
+            .and(mapleSyrup.g(80))
+            .and(vanillaExtract.tsp(1))
+            .addTo('a mixing bowl and blend to combine (note: use the creamiest coconut milk available)'),
+        'Cut sponge in half down the middle, such that each half fits neatly in the rectangular baking dish',
+        'Layer the tiramisu in the baking dish: sponge, 3 tbsp coffee, half the coconut cream mixture (spread evenly), sponge, rest of the coffee, other half of the coconut cream mixture',
+        'Let rest in the fridge for 6 hrs or overnight',
+        'Sprinkle evenly with cocoa powder on top using a strainer',
+        'Serve & enjoy :)',
+    ], [
+        coffee,
+        cocoaPowder,
+    ]),
+    new Recipe('Chocolate Cake', Recipe.Category.Dessert, [
+        'Preheat oven to 180°C',
+        flour.g(375)
+            .and(sugar.g(110))
+            .and(bakingPowder.tsp(2))
+            .and(salt.tsp(.5))
+            .and(cocoaPowder.g(60))
+            .and(water.ml(475))
+            .and(cookingOil.g(145))
+            .and(riceVinegar.tbsp(2))
+            .and(vanillaExtract)
+            .addTo('a mixing bowl and whisk to combine'),
+        'Grease baking dish with butter',
+        'Bake for 20 mins',
+        'Let cool for 15 mins',
+        'Serve & enjoy :)',
+    ], [
+        butter,
+    ]),
+    new Recipe('American Pancakes', Recipe.Category.Breakfast, [
+        'Add flour (sieved) to a mixing bowl',
+        bakingPowder.g(12)
+            .and(salt.tsp(.5))
+            .and(sugar.g(25))
+            .addTo('bowl and whisk to combine'),
+        oatMilk.ml(235)
+            .and(water.ml(120))
+            .and(cookingOil.g(25))
+            .addTo('bowl and combine with a wooden spoon'),
+        'Grease a pancake pan with butter and heat over medium heat',
+        'Cook pancakes, using approx. 6 tbsp of batter at a time, approx. 1 min on either side',
+        'Serve with butter, maple syrup, fruit, chocolate, etc. and enjoy :)',
+    ], [
+        flour.g(190),
+        butter,
+    ]),
+    new Recipe('Chocolate Truffles', Recipe.Category.Dessert, [
+        oatMilk.ml(170)
+            .addTo('a small pot and heat until steamy but not boiling'),
+        chocolateChips.g(300)
+            .addTo('a bowl, pour hot milk on top and cover with a plate for 5 mins'),
+        'Whisk until smooth, heating back up quickly in the microwave as needed',
+        'Cover and refrigerate for at least an hour',
+        cocoaPowder.g(60)
+            .addTo('a shallow bowl'),
+        'Roll chocolate mixture into balls (approx. 1-2 tbsp at a time) and roll into cocoa powder to cover',
+        'Refrigerate truffles',
+        'Serve & enjoy :)',
     ]),
 ];
