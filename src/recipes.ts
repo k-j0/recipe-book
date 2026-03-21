@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, pintoBeans, potato, powderedSugar, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, shiitake, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, pintoBeans, potato, powderedSugar, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -716,6 +716,54 @@ export const recipes = [
             .addTo('a shallow bowl'),
         'Roll chocolate mixture into balls (approx. 1-2 tbsp at a time) and roll into cocoa powder to cover',
         'Refrigerate truffles',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('香菇菜包 (Mushroom & Bok Choy Buns)', Recipe.Category.Meal, [
+        bokChoy.addTo('a pot of boiling water and blanch'),
+        'Transfer to cold water',
+        'Mince bok choy, squeezing out water',
+        cookingOil.addTo('a heated wok'),
+        shiitake.minced().addTo('wok alongside bok choy'),
+        salt.and(coconutAminos).addTo('wok and stir fry'),
+        'Refrigerate vegetable mixture until ready to use',
+        flour.g(300)
+            .and(water.ml(160))
+            .and(dryYeast.g(6))
+            .and(sugar.g(10))
+            .addTo('a mixing bowl and knead'),
+        'Let dough rise until doubled in volume (approx. 1h30)',
+        'Punch down dough and portion out into 35g balls',
+        'Wrap filling into buns',
+        'Let buns rise for 30 mins',
+        'Steam buns for 8 mins (or freeze and steam for 12 mins directly from frozen)',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Grießkuchen', Recipe.Category.Dessert, [
+        'Preheat oven to 160°C',
+        coconutMilk.ml(250)
+            .and(water.ml(250))
+            .addTo('a mixing bowl and stir to combine'),
+        semolina.g(250).addTo('bowl and mix in'),
+        butter.g(50)
+            .and(sugar.g(100))
+            .addTo('another bowl and whisk until fluffy'),
+        'Combine sugar/butter mixture into dough mixture',
+        cornstarch.tsp(8)
+            .and(cookingOil.tbsp(4))
+            .addTo('a cup and mix until combined'),
+        'Add cornstarch mixture into dough',
+        'Grind sunflower seeds',
+        sunflowerSeeds.g(50)
+            .and(shreddedCoconut.g(50))
+            .addTo('dough and mix'),
+        butter.g(50)
+            .addTo('a small pot and heat to melt'),
+        'Grease a cake mould',
+        'Add dough into the mould',
+        'Spread melted butter on top',
+        'Bake for 30 minutes',
+        'Let cake cool',
+        'Sprinkle with more shredded coconut',
         'Serve & enjoy :)',
     ]),
 ];

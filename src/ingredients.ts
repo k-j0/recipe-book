@@ -86,6 +86,7 @@ export const seitan = ingr('seitan');
 export const mapleSyrup = ingr('maple syrup');
 export const flour = ingr('flour');
 export const breadFlour = ingr('bread flour');
+export const semolina = ingr('semolina');
 export const bakingPowder = ingr('baking powder');
 export const sugar = ingr('sugar');
 export const powderedSugar = ingr('powdered sugar');
@@ -99,6 +100,7 @@ export const sunflowerSeeds = ingr('sunflower seeds');
 export const pieDough = ingr('pie dough');
 export const rhum = ingr('rhum');
 export const coffee = ingr('coffee');
+export const shreddedCoconut = ingr('shredded coconut');
 
 export const vinegar = ingr('vinegar');
 export const riceVinegar = ingr('rice vinegar');

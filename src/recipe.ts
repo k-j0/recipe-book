@@ -9,7 +9,6 @@ export class Recipe {
     
     get id () {
         return this.name.toLowerCase()
-            .replace(/\s/g, '-')
             .replace(/&/g, 'and')
             .replace(/[àáâãä]/g, 'a')
             .replace(/å/g, 'aa')
@@ -23,7 +22,10 @@ export class Recipe {
             .replace(/[ùúûü]/g, 'u')
             .replace(/[ýÿ]/g, 'y')
             .replace(/þ/g, 'th')
-            .replace(/[^a-z-]/g, '');
+            .replace(/ß/g, 'ss')
+            .replace(/[^a-z\s]/g, '')
+            .trim()
+            .replace(/\s/g, '-');
     }
     
     get ingredients () {
