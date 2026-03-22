@@ -48,10 +48,12 @@ export const freshParsley = ingr('fresh parsley');
 export const freshBasil = ingr('fresh basil');
 export const freshMint = ingr('fresh mint');
 export const freshRosemary = ingr('fresh rosemary');
+export const freshDill = ingr('fresh dill');
 
 export const apple = ingr('apple');
 export const pear = ingr('pear');
 export const rhubarb = ingr('rhubarb');
+export const raspberry = ingr('raspberry');
 export const lemon = ingr('lemon');
 export const lemonJuice = ingr('lemon juice');
 export const limeJuice = ingr('lime juice');
@@ -67,6 +69,7 @@ export const pasta = ingr('pasta');
 export const noodles = ingr('noodles');
 export const spaghetti = ingr('spaghetti');
 export const rice = ingr('rice');
+export const sushiRice = ingr('sushi rice');
 export const couscous = ingr('couscous');
 export const quinoa = ingr('quinoa');
 
@@ -80,6 +83,7 @@ export const bakedBeans = ingr('baked beans');
 
 export const kimchi = ingr('kimchi');
 export const blackOlives = ingr('black olives');
+export const pickles = ingr('pickles');
 export const mushroomPatty = ingr('mushroom patty');
 export const seitan = ingr('seitan');
 
@@ -107,8 +111,10 @@ export const riceVinegar = ingr('rice vinegar');
 export const coconutAminos = ingr('coconut aminos');
 export const ketchup = ingr('ketchup');
 export const mayo = ingr('mayo');
+export const mustard = ingr('mustard');
 export const tomatoPaste = ingr('tomato paste');
 export const tomatoSauce = ingr('tomato sauce');
+export const sundriedTomatoes = ingr('sundried tomatoes');
 export const rostadLök = ingr('rostad lök (fried onions)');
 
 export const bread = ingr('bread');
@@ -124,12 +130,15 @@ export const sriracha = ingr('sriracha');
 export const cumin = ingr('cumin');
 export const paprika = ingr('paprika');
 export const chiliPowder = ingr('chili powder');
+export const turmericPowder = ingr('turmeric powder');
+export const corianderPowder = ingr('coriander powder');
 export const oregano = ingr('oregano');
 export const onionPowder = ingr('onion powder');
 export const garlicPowder = ingr('garlic powder');
 export const corianderSeeds = ingr('coriander seeds');
 export const cuminSeeds = ingr('cumin seeds');
 export const driedThyme = ingr('dried thyme');
+export const driedParsley = ingr('dried parsley');
 export const bayLeaf = ingr('bay leaf');
 export const salt = ingr('salt');
 export const seaSalt = ingr('sea salt (flaky)');

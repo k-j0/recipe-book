@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pieDough, pintoBeans, potato, powderedSugar, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sunflowerSeeds, tomato, tomatoPaste, tomatoSauce, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -765,5 +765,113 @@ export const recipes = [
         'Let cake cool',
         'Sprinkle with more shredded coconut',
         'Serve & enjoy :)',
+    ]),
+    new Recipe('Curry Roux', Recipe.Category.Component, [
+        butter.g(100).addTo('a small pot and melt'),
+        flour.g(100).addTo('pot and stir to combine'),
+        'Keep stirring on low heat until golden (approx. 20 mins)',
+        turmericPowder.tbsp(2)
+            .and(paprika.tbsp(2))
+            .and(corianderPowder.tbsp(2))
+            .and(cumin.tbsp(2))
+            .and(garlicPowder.tsp(1))
+            .and(blackPepper.tsp(1))
+            .addTo('roux and whisk to combine'),
+        'Cook for 30 seconds',
+        'Transfer to a container lined with baking paper',
+        'Refrigerate overnight',
+        'Cut into cubes and freeze for up to 4 months',
+    ]),
+    new Recipe('Sushi Rice', Recipe.Category.Component, [
+        sushiRice.take(1, 'part')
+            .and(water.take(1, 'part'))
+            .addTo('a pot'),
+        'Bring to boil, then reduce to low and cover',
+        'Cook for 12 mins',
+        'Remove from heat and let rest, covered, for 10 mins',
+        riceVinegar.take(.125, 'parts')
+            .and(sugar.take(.125, 'parts'))
+            .and(cookingOil)
+            .and(salt)
+            .addTo('a small pot and cook until dissolved'),
+        'Let vinegar mixture cool',
+        'Stir to combine into rice',
+    ]),
+    new Recipe('Roasted Potatoes', Recipe.Category.Side, [
+        'Preheat oven to 200°C',
+        potato.g(2000).chopped()
+            .and(salt.tbsp(2))
+            .and(bakingPowder.tsp(1))
+            .addTo('a pot of boiling water'),
+        'Cook for approx. 10 mins or until potatoes are easily pierced',
+        'Drain and let potatoes rest in pot (uncovered) for a minute',
+        blackPepper.and(garlicPowder).addTo('potatoes'),
+        'Cover pot and toss vigorously',
+        'Transfer to baking sheet',
+        'Roast in oven for 45 mins, flipping them at the halfway point',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Crème Brûlée', Recipe.Category.Dessert, [
+        sugar.g(80)
+            .and(cornstarch.g(40))
+            .and(turmericPowder.tsp(.1))
+            .and(salt.tsp(.1))
+            .and(oatMilk.ml(240))
+            .and(coconutMilk.ml(400))
+            .addTo('a small pot and whisk to combine'),
+        'Bring to boil, continously whisking, reduce the heat and simmer for 5 mins',
+        'Remove from heat',
+        vanillaExtract.tbsp(2)
+            .and(butter.g(25))
+            .addTo('mixture and stir in until melted'),
+        'Transfer to ramekins',
+        'Cover ramekins and refrigerate overnight',
+        'Sprinkle with sugar and burn with kitchen torch',
+        'Serve with fresh raspberries & enjoy :)',
+    ], [
+        raspberry.take(1, 'handful'),
+    ]),
+    new Recipe('Potato Salad', Recipe.Category.Side, [
+        potato.chopped()
+            .addTo('a pot of water, bring to boil and cook for 10 mins or until potatoes are easily pierced'),
+        'Drain and rinse with cool water',
+        celery.chopped()
+            .and(redOnion.chopped())
+            .and(pickles.chopped())
+            .and(vinegar)
+            .and(mustard)
+            .and(freshDill.minced())
+            .and(mayo)
+            .and(salt)
+            .and(paprika)
+            .and(blackPepper)
+            .addTo('a mixing bowl and combine'),
+        'Once potatoes are cooled, add to bowl',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Caramelized Onion Pasta Casserole', Recipe.Category.Meal, [
+        'Preheat oven to 200°C',
+        onion.take(5).sliced()
+            .and(sundriedTomatoes.take(1, 'jar').chopped())
+            .and(paprika.tbsp(1))
+            .and(driedParsley.tsp(1))
+            .and(salt)
+            .and(blackPepper)
+            .addTo('a baking dish and mix'),
+        garlic.take(1, 'head').addTo('dish, in the middle'),
+        'Drizzle with oil leftover from sundried tomato jar',
+        'Cover with foil',
+        'Bake for 1 hr, tossing halfway through',
+        'Remove garlic from dish',
+        'Cook pasta',
+        freshParsley.take(1, 'handful').chopped()
+            .and(freshBasil.take(1, 'handful').chopped())
+            .and(lemonJuice)
+            .and(coconutMilk.take(.5, 'tins'))
+            .addTo('dish, along with pasta and a few tablespoons of pasta water'),
+        'Squeeze out garlic cloves into dish and stir',
+        'Serve & enjoy :)',
+    ], [
+        pasta,
     ]),
 ];
