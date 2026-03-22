@@ -17,6 +17,34 @@ function showBackButton (contentDiv: HTMLDivElement, text: string, cb: () => voi
 function showMainMenu (contentDiv: HTMLDivElement) {
     contentDiv.innerHTML = '';
     
+    const lastVisitNumRecipes = globalThis.parseInt(globalThis.localStorage.getItem('numRecipes') ?? '-1');
+    if (lastVisitNumRecipes < recipes.length) {
+        globalThis.localStorage.setItem('numRecipes', ''+recipes.length);
+        if (lastVisitNumRecipes > 0) {
+            const newRecipes = recipes.slice(lastVisitNumRecipes);
+            const newRecipeContainer = globalThis.document.createElement('div');
+            newRecipeContainer.style.background = '#f002';
+            newRecipeContainer.style.padding = '1em';
+            
+            const h2 = globalThis.document.createElement('h2');
+            h2.innerText = 'New since your last visit';
+            newRecipeContainer.append(h2);
+            
+            const ul = globalThis.document.createElement('ul');
+            for (const recipe of newRecipes) {
+                const li = globalThis.document.createElement('li');
+                const a = globalThis.document.createElement('a');
+                a.innerText = recipe.name;
+                a.href = `${globalThis.location.pathname}?${recipe.id}`;
+                li.append(a);
+                ul.append(li);
+            }
+            newRecipeContainer.append(ul);
+            
+            contentDiv.append(newRecipeContainer);
+        }
+    }
+    
     const categoryGrid = globalThis.document.createElement('div');
     categoryGrid.classList.add('categories');
     for (const key of Object.keys(Recipe.Category)) {
