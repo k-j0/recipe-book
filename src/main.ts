@@ -6,16 +6,20 @@ import { Recipe } from './recipe.ts';
 import { recipes } from './recipes.ts';
 import { StringUtils } from './string-utils.ts';
 
-function showBackButton (contentDiv: HTMLDivElement, text: string, cb: () => void) {
-    const back = globalThis.document.createElement('a');
-    back.href = 'javascript:void(0)';
-    back.innerText = text;
-    back.addEventListener('click', cb);
-    contentDiv.append(back);
+const baseUrl = globalThis.location.pathname;
+
+function navigate (state: Record<string, any>, url: string, push: boolean) {
+    if (push) {
+        globalThis.history.pushState(state, '', url);
+    } else {
+        globalThis.history.replaceState(state, '', url);
+    }
 }
 
-function showMainMenu (contentDiv: HTMLDivElement) {
+function showMainMenu (contentDiv: HTMLDivElement, pushToHistory: boolean) {
     contentDiv.innerHTML = '';
+    
+    navigate({ mainMenu: true }, baseUrl, pushToHistory);
     
     const lastVisitNumRecipes = globalThis.parseInt(globalThis.localStorage.getItem('numRecipes') ?? '-1');
     if (lastVisitNumRecipes < recipes.length) {
@@ -50,8 +54,11 @@ function showMainMenu (contentDiv: HTMLDivElement) {
     for (const key of Object.keys(Recipe.Category)) {
         const category: Recipe.Category = (Recipe.Category as any)[key];
         const a = globalThis.document.createElement('a');
-        a.href = 'javascript:void(0)';
-        a.addEventListener('click', () => showCategoryMenu(contentDiv, category));
+        a.href = `${baseUrl}?${category}`;
+        a.addEventListener('click', (e) => {
+            showCategoryMenu(contentDiv, category, true);
+            e.preventDefault();
+        });
         
         const img = new Image;
         img.src = `${category}.png`;
@@ -64,10 +71,19 @@ function showMainMenu (contentDiv: HTMLDivElement) {
     contentDiv.append(categoryGrid);
 }
 
-function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category) {
+function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category, pushToHistory: boolean) {
     contentDiv.innerHTML = '';
     
-    showBackButton(contentDiv, 'Main menu', () => showMainMenu(contentDiv));
+    navigate({ category }, `${baseUrl}?${category}`, pushToHistory);
+    
+    const back = globalThis.document.createElement('a');
+    back.innerText = `Main menu`;
+    back.href = baseUrl;
+    back.addEventListener('click', e => {
+        showMainMenu(contentDiv, true);
+        e.preventDefault();
+    });
+    contentDiv.append(back);
     
     const h2 = globalThis.document.createElement('h2');
     h2.innerText = StringUtils.capitalize(category) + ' recipes';
@@ -75,10 +91,10 @@ function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category
     
     const recipeElems = recipes.filter(r => r.category === category).map(recipe => {
         const a = globalThis.document.createElement('a');
-        a.href = 'javascript:void(0)';
-        a.addEventListener('click', () => {
-            history.replaceState({}, '', `${globalThis.location.pathname}?${recipe.id}`);
-            showRecipe(contentDiv, recipe);
+        a.href = `${baseUrl}?${recipe.id}`;
+        a.addEventListener('click', (e) => {
+            showRecipe(contentDiv, recipe, true);
+            e.preventDefault();
         });
         a.innerText = recipe.name;
         a.style.display = 'block';
@@ -122,13 +138,19 @@ function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category
     }
 }
 
-function showRecipe (contentDiv: HTMLDivElement, recipe: Recipe) {
+function showRecipe (contentDiv: HTMLDivElement, recipe: Recipe, pushToHistory: boolean) {
     contentDiv.innerHTML = '';
     
-    showBackButton(contentDiv, `Back to ${recipe.category}s`, () => {
-        history.replaceState({}, '', globalThis.location.pathname);
-        showCategoryMenu(contentDiv, recipe.category);
+    navigate({ recipe: recipe.id }, `${baseUrl}?${recipe.id}`, pushToHistory);
+    
+    const back = globalThis.document.createElement('a');
+    back.innerText = `Back to ${recipe.category}s`;
+    back.href = `${baseUrl}?${recipe.category}`;
+    back.addEventListener('click', e => {
+        showCategoryMenu(contentDiv, recipe.category, true);
+        e.preventDefault();
     });
+    contentDiv.append(back);
     
     contentDiv.append(recipe.toHtml());
 }
@@ -140,13 +162,38 @@ export async function main () {
         throw new Error(`No #content found in DOM`);
     }
     
+    globalThis.addEventListener('popstate', event => {
+        const state = 'state' in event ? event.state : undefined;
+        if (typeof state === 'object' && state !== null) {
+            if ('mainMenu' in state) {
+                showMainMenu(contentDiv, false);
+                return;
+            } else if ('category' in state) {
+                showCategoryMenu(contentDiv, state.category as Recipe.Category, false);
+                return;
+            } else if ('recipe' in state) {
+                const recipe = recipes.find(recipe => recipe.id === state.recipe);
+                if (recipe) {
+                    showRecipe(contentDiv, recipe, false);
+                }
+                return;
+            }
+        }
+        throw new Error(`Invalid state passed to popstate: ${JSON.stringify(state)}`);
+    });
+    
     const url = ''+globalThis.location;
     const questionMarkIdx = url.lastIndexOf('?');
-    const recipeId = url.substring(questionMarkIdx+1);
-    const recipe = recipes.find(recipe => recipe.id === recipeId);
+    const param = url.substring(questionMarkIdx+1);
+    const recipe = recipes.find(recipe => recipe.id === param);
     if (recipe) {
-        showRecipe(contentDiv, recipe);
-    } else {
-        showMainMenu(contentDiv);
+        showRecipe(contentDiv, recipe, false);
+        return;
     }
+    const category = Object.keys(Recipe.Category).map(key => (Recipe.Category as any)[key]).includes(param) ? param as Recipe.Category : null;
+    if (category) {
+        showCategoryMenu(contentDiv, category, false);
+        return;
+    }
+    showMainMenu(contentDiv, false);
 }
