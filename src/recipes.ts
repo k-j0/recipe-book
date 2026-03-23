@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 export const recipes = [
@@ -873,5 +873,63 @@ export const recipes = [
         'Serve & enjoy :)',
     ], [
         pasta,
+    ]),
+    new Recipe('Potato & Dill Soup', Recipe.Category.Meal, [
+        oliveOil
+            .and(onion.take(1).chopped())
+            .and(carrot.take(1).chopped())
+            .and(garlic.take(1, 'clove').minced())
+            .addTo('a pot and fry for a few minutes'),
+        potato.take(3).chopped()
+            .and(butterBeans.take(1, 'tin'))
+            .and(freshDill.tbsp(2))
+            .and(salt)
+            .and(blackPepper)
+            .and(mustard.tbsp(1))
+            .addTo('pot'),
+        soupCube.and(water).addTo('pot and bring to a simmer'),
+        oatCream.and(lemonJuice).addTo('pot once potatoes are cooked'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Olive Pesto Pasta', Recipe.Category.Meal, [
+        blackOlives.g(200)
+            .and(freshBasil.g(60))
+            .and(oliveOil.ml(50))
+            .and(garlic.take(1, 'clove'))
+            .and(sunflowerSeeds.g(100))
+            .and(nutritionalYeast.g(20))
+            .addTo('blender and blend'),
+        'Cook pasta',
+        'Add pasta water and pesto to a pan over medium heat and bring to a simmer',
+        'Drain pasta and add to pan and fold in',
+        'Serve with halved cherry tomatoes, sunflower seeds, and a few basil leaves & enjoy :)',
+    ], [
+        cherryTomato,
+        pasta,
+    ]),
+    new Recipe('Slow Cooked Kidney Bean Curry', Recipe.Category.Meal, [
+        kidneyBeans.g(400).dry().addTo('a pot with water and a pinch of salt'),
+        'Soak overnight, then drain and rinse',
+        redOnion.take(1).chopped()
+            .and(garlic.take(2, 'cloves'))
+            .and(ginger.minced())
+            .addTo('blender and blend to a coarse paste'),
+        cookingOil.tbsp(2).addTo('a pan on medium heat'),
+        'Add onion paste and fry until soft',
+        choppedTomatoes.take(1, 'tin')
+            .and(cumin.tsp(1))
+            .and(curryPowder.tsp(2))
+            .and(salt)
+            .addTo('pan and cook for another 5 mins'),
+        'Transfer to a pot alongside drained beans, half the coriander, lemon juice, black pepper, and 5 cups stock',
+        'Heat up to a boil, lower to a simmer and cook, covered, for 6-8 hours, stirring every now and then',
+        'Blend a small portion and add remaining coriander',
+        'Serve with rice & enjoy :)',
+    ], [
+        freshCoriander.take(1, 'bunch'),
+        lemonJuice,
+        blackPepper,
+        soupCube,
+        rice.cooked(),
     ]),
 ];
