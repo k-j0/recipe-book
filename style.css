@@ -134,3 +134,15 @@ ol {
 .ts-control > * {
     cursor: unset;
 }
+
+.recipe-img {
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px #f005 solid;
+    border-radius: 1em;
+}

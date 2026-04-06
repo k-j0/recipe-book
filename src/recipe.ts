@@ -5,7 +5,7 @@ import { RecipeStep } from "./recipe-step.ts";
 
 export class Recipe {
     
-    constructor (readonly name: string, readonly category: Recipe.Category, readonly steps: (RecipeStep | string)[], readonly additionalIngredients: Ingredient[] = []) {}
+    constructor (readonly name: string, readonly category: Recipe.Category, readonly steps: (RecipeStep | string)[], readonly additionalIngredients: (Ingredient | Recipe)[] = []) {}
     
     get id () {
         return this.name.toLowerCase()
@@ -28,7 +28,7 @@ export class Recipe {
             .replace(/\s/g, '-');
     }
     
-    get ingredients () {
+    get ingredients (): (Ingredient | Recipe)[] {
         return [
             ...this.steps.flatMap(s => s instanceof RecipeStep ? s.associatedIngredients : []),
             ...this.additionalIngredients,
@@ -41,6 +41,13 @@ export class Recipe {
         const title = globalThis.document.createElement('h2');
         title.innerText = this.name;
         div.append(title);
+        
+        const img = new Image;
+        img.src = `../recipes/${this.id}.png`;
+        img.className = 'recipe-img';
+        img.style.display = 'none';
+        img.addEventListener('load', () => img.style.display = 'block');
+        div.append(img);
         
         const shareData = { url: `${globalThis.location.pathname}?${this.id}` };
         if ('canShare' in globalThis.navigator && 'share' in globalThis.navigator && globalThis.navigator.canShare(shareData)) {
@@ -61,19 +68,32 @@ export class Recipe {
         ingredientsTitle.innerText = 'Ingredients';
         div.append(ingredientsTitle);
         
-        const allIngredients = this.ingredients;
-        allIngredients.sort((a, b) => ingredients.indexOf(a.original) - ingredients.indexOf(b.original));
+        const allIngredients = [
+            ...this.ingredients.filter(ingr => ingr instanceof Ingredient).sort((a, b) => ingredients.indexOf(a.original) - ingredients.indexOf(b.original)),
+            ...this.ingredients.filter(ingr => ingr instanceof Recipe),
+        ];
         const ingredientsContainer = globalThis.document.createElement('div');
         for (let i = 0; i < allIngredients.length; ++i) {
+            const ingredient = allIngredients[i];
             const p = globalThis.document.createElement('p');
             const checkbox = globalThis.document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.id = `ingredient-${i}`;
             checkbox.checked = false;
             p.append(checkbox);
-            const label = globalThis.document.createElement('label');
-            label.setAttribute('for', `ingredient-${i}`);
-            label.innerText = allIngredients[i].toString();
+            
+            let label: HTMLElement;
+            if (ingredient instanceof Ingredient) {
+                label = globalThis.document.createElement('label');
+                label.setAttribute('for', `ingredient-${i}`);
+                label.innerText = ingredient.toString();
+            } else {
+                const a = globalThis.document.createElement('a');
+                a.innerText = ingredient.name;
+                a.href = `${globalThis.location.pathname}?${ingredient.id}`;
+                label = a;
+            }
+            
             label.style.paddingLeft = '.5em';
             p.append(label);
             checkbox.addEventListener('change', () => {

@@ -68,6 +68,7 @@ export const custard = ingr('custard');
 export const pasta = ingr('pasta');
 export const noodles = ingr('noodles');
 export const spaghetti = ingr('spaghetti');
+export const cannelloni = ingr('cannelloni');
 export const rice = ingr('rice');
 export const sushiRice = ingr('sushi rice');
 export const couscous = ingr('couscous');
@@ -121,7 +122,6 @@ export const nutritionalYeast = ingr('nutritional yeast');
 
 export const bread = ingr('bread');
 export const burgerBuns = ingr('burger buns');
-export const roti = ingr('roti');
 
 export const soupCube = ingr('soup cube');
 export const stock = ingr('stock');

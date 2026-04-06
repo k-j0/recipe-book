@@ -1,6 +1,41 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, roti, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, cannelloni, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
+
+const cornRoti =  new Recipe('Corn Roti', Recipe.Category.Side, [
+    cornstarch.g(240)
+        .and(salt)
+        .addTo('a bowl'),
+    'Boil water and mix/knead into the cornstarch, a little at a time, until a firm dough forms',
+    'Shape dough into small balls and flatten out onto a sheet of baking paper, aiming for even thickness',
+    butter.addTo('a pan and heat up until melted'),
+    'Cook each roti on each side for a few minutes, until golden and crispy',
+    'Serve & enjoy :)',
+], [
+    water,
+]);
+
+const bechamel = new Recipe('Bechamel', Recipe.Category.Component, [
+    butter.addTo('a pot on low heat and melt'),
+    flour.addTo('pot and mix in'),
+    'Add more flour or butter to reach a paste-like consistency',
+    oatMilk.addTo('pot and whisk to combine'),
+    salt.and(blackPepper).addTo('pot'),
+    'Continue whisking to combine fully, adding more milk to reach the desired consistency',
+    'Remove from heat after a few minutes',
+]);
+
+const pesto = new Recipe('Pesto', Recipe.Category.Side, [
+    freshBasil
+        .and(garlic)
+        .and(sunflowerSeeds)
+        .and(oliveOil)
+        .and(water)
+        .and(salt)
+        .and(blackPepper)
+        .addTo('blender and blend until smooth, adding more water, oil, or sunflower seeds to reach desired consistency'),
+    'Serve & enjoy :)',
+]);
 
 export const recipes = [
     new Recipe('Soupy Noodles', Recipe.Category.Meal, [
@@ -596,20 +631,9 @@ export const recipes = [
         'Serve with roti and rice & enjoy :)',
     ], [
         rice,
-        roti,
+        cornRoti,
     ]),
-    new Recipe('Corn Roti', Recipe.Category.Side, [
-        cornstarch.g(240)
-            .and(salt)
-            .addTo('a bowl'),
-        'Boil water and mix/knead into the cornstarch, a little at a time, until a firm dough forms',
-        'Shape dough into small balls and flatten out onto a sheet of baking paper, aiming for even thickness',
-        butter.addTo('a pan and heat up until melted'),
-        'Cook each roti on each side for a few minutes, until golden and crispy',
-        'Serve & enjoy :)',
-    ], [
-        water,
-    ]),
+    cornRoti,
     new Recipe('Foccaccia', Recipe.Category.Side, [
         breadFlour.g(510)
             .and(salt.g(12))
@@ -892,20 +916,17 @@ export const recipes = [
         'Serve & enjoy :)',
     ]),
     new Recipe('Olive Pesto Pasta', Recipe.Category.Meal, [
-        blackOlives.g(200)
-            .and(freshBasil.g(60))
-            .and(oliveOil.ml(50))
+        blackOlives.take(1, 'jar')
+            .and(freshBasil.take(1, 'bunch'))
+            .and(oliveOil.g(40))
             .and(garlic.take(1, 'clove'))
-            .and(sunflowerSeeds.g(100))
-            .and(nutritionalYeast.g(20))
+            .and(sunflowerSeeds.g(60))
+            .and(nutritionalYeast.g(20).optional())
             .addTo('blender and blend'),
-        'Cook pasta',
-        'Add pasta water and pesto to a pan over medium heat and bring to a simmer',
-        'Drain pasta and add to pan and fold in',
-        'Serve with halved cherry tomatoes, sunflower seeds, and a few basil leaves & enjoy :)',
+        'Serve with pasta, halved cherry tomatoes, sunflower seeds, and a few basil leaves & enjoy :)',
     ], [
         cherryTomato,
-        pasta,
+        pasta.cooked(),
     ]),
     new Recipe('Slow Cooked Kidney Bean Curry', Recipe.Category.Meal, [
         kidneyBeans.g(400).dry().addTo('a pot with water and a pinch of salt'),
@@ -931,5 +952,62 @@ export const recipes = [
         blackPepper,
         soupCube,
         rice.cooked(),
+    ]),
+    bechamel,
+    pesto,
+    new Recipe('Greens Cannelloni', Recipe.Category.Meal, [
+        cookingOil
+            .and(onion.take(2).chopped())
+            .and(salt)
+            .addTo('a pot and fry'),
+        bokChoy.take(3).chopped().addTo('pot (stems first)'),
+        'Prepare bechamel while it cooks',
+        garlic
+            .and(blackPepper)
+            .and(vegeta)
+            .and(brownBeans.take(1, 'tin'))
+            .addTo('pot alongside bok choy leaves, chopped small'),
+        spinach.g(400).addTo('pot'),
+        'Cook until very soft',
+        'Leave to cool slightly',
+        'Meanwhile, preheat oven to 180°C',
+        'In a baking dish, fill cannelloni with mixture using a teaspoon',
+        'Cover with bechamel and grated cheese',
+        'Cook for 30 minutes',
+        'Serve with cherry tomatoes and pesto and enjoy :)',
+    ], [
+        cannelloni,
+        cheese.grated(),
+        cherryTomato,
+        bechamel,
+        pesto,
+    ]),
+    new Recipe('Chocolate Chip Hot X Buns', Recipe.Category.Breakfast, [
+        dryYeast.tsp(2.5)
+            .and(water.ml(125))
+            .addTo('a mixing bowl alongside 1 tsp sugar and let stand for a few minutes'),
+        oatMilk.ml(190)
+            .and(cookingOil.g(75))
+            .and(salt)
+            .and(sugar.g(40))
+            .and(flour.g(275))
+            .and(breadFlour.g(275))
+            .addTo('bowl and knead thoroughly, until it is no longer sticky'),
+        chocolateChips.g(100)
+            .addTo('dough and fold in'),
+        'Cover and let dough rise for an hour at room temperature or overnight in the fridge',
+        'Knead to get rid of air pockets and separate into 8 balls',
+        'Place dough balls into baking dish lined with baking paper',
+        'Preheat oven to 190°C; meanwhile, let dough balls rise for 30 mins',
+        oatMilk.tbsp(2)
+            .and(mapleSyrup.tbsp(1))
+            .addTo('a small bowl and mix to combine'),
+        'Brush maple syrup milk mixture onto balls',
+        'Bake for 20 mins',
+        'Let buns cool without separating them from each other yet',
+        powderedSugar.g(30)
+            .and(oatMilk.tsp(1.5))
+            .addTo('a small bowl and mix to combine into icing'),
+        'Once buns have cooled, use icing to draw crosses on them (or whatever else you fancy) and serve immediately :)',
     ]),
 ];

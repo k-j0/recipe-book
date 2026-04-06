@@ -1,10 +1,12 @@
 
 import TomSelect from 'tom-select';
+// @ts-expect-error
 import 'tom-select/dist/css/tom-select.css';
 import { ingredients } from './ingredients.ts';
 import { Recipe } from './recipe.ts';
 import { recipes } from './recipes.ts';
 import { StringUtils } from './string-utils.ts';
+import { Ingredient } from './ingredient.ts';
 
 const baseUrl = globalThis.location.pathname;
 
@@ -102,7 +104,7 @@ function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category
     });
     
     const uniqueIngredients = [...new Set(
-        recipeElems.flatMap(([recipe, _]) => recipe.ingredients.map(ingr => ingr.original))
+        recipeElems.flatMap(([recipe, _]) => recipe.ingredients.filter(ingr => ingr instanceof Ingredient).map(ingr => ingr.original))
     )].sort((a, b) =>
         ingredients.indexOf(a) - ingredients.indexOf(b)
     );
@@ -123,7 +125,7 @@ function showCategoryMenu (contentDiv: HTMLDivElement, category: Recipe.Category
             for (const [recipe, elem] of recipeElems) {
                 let hasAll = true;
                 for (const ingredient of ingredients) {
-                    if (!recipe.ingredients.find(ingr => ingr.original === ingredient)) {
+                    if (!recipe.ingredients.find(ingr => ingr instanceof Ingredient && ingr.original === ingredient)) {
                         hasAll = false;
                         break;
                     }
