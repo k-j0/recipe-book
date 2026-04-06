@@ -43,7 +43,7 @@ export class Recipe {
         div.append(title);
         
         const img = new Image;
-        img.src = `../recipes/${this.id}.png`;
+        img.src = `recipes/${this.id}.png`;
         img.className = 'recipe-img';
         img.style.display = 'none';
         img.addEventListener('load', () => img.style.display = 'block');
