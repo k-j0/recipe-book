@@ -14,6 +14,7 @@ export const iceCube = ingr('ice cube');
 
 export const cookingOil = ingr('cooking oil');
 export const oliveOil = ingr('olive oil');
+export const coconutOil = ingr('coconut oil');
 export const butter = ingr('butter');
 
 export const onion = ingr('onion');
@@ -102,6 +103,7 @@ export const cocoaPowder = ingr('cocoa powder');
 export const dryYeast = ingr('dry yeast');
 export const cornstarch = ingr('cornstarch');
 export const sunflowerSeeds = ingr('sunflower seeds');
+export const linSeeds = ingr('lin seeds');
 export const pieDough = ingr('pie dough');
 export const rhum = ingr('rhum');
 export const coffee = ingr('coffee');

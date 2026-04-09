@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, cannelloni, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackBeans, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, cannelloni, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coconutOil, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, linSeeds, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 const cornRoti =  new Recipe('Corn Roti', Recipe.Category.Side, [
@@ -1009,5 +1009,45 @@ export const recipes = [
             .and(oatMilk.tsp(1.5))
             .addTo('a small bowl and mix to combine into icing'),
         'Once buns have cooled, use icing to draw crosses on them (or whatever else you fancy) and serve immediately :)',
+    ]),
+    new Recipe('Doughnuts', Recipe.Category.Dessert, [
+        butter.g(50).melted()
+            .and(oatMilk.ml(120))
+            .and(cookingOil.tbsp(2))
+            .addTo('a pot over medium heat and mix'),
+        'Take off heat and set aside',
+        flour.g(250)
+            .and(sugar.g(50))
+            .and(bakingPowder.tsp(1))
+            .and(salt)
+            .addTo('a bowl and mix'),
+        'Add in butter mixture and combine to form a thick dough',
+        'Form dough into small balls, and hollow out the middle',
+        'Heat oil in a pan for a couple minutes until it\'s very hot',
+        'Use a spatula to add doughnuts to oil (be careful)',
+        'Fry approx. 5 mins on each side then take off heat and set aside on paper towels',
+        'Add sugar to a bowl and roll doughnuts in to cover them',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Bean Brownies', Recipe.Category.Dessert, [
+        'Preheat oven to 175°C',
+        linSeeds.tbsp(1)
+            .addTo('a small blender and blend until thoroughly ground'),
+        coconutOil.g(100).melted()
+            .and(blackBeans.take(1, 'tin'))
+            .and(water.tbsp(4))
+            .addTo('a mixing bowl and blend until smooth'),
+        sugar.g(100)
+            .and(cocoaPowder.g(22))
+            .and(flour.g(60))
+            .and(chocolateChips.g(130))
+            .addTo('bowl and mix in, alongside ground lin seeds'),
+        'Add batter to a buttered baking dish',
+        'Bake for 40 mins or until a knife inserted in comes out dry',
+        'Set aside to cool completely',
+        'Serve sprinkled with powdered sugar & enjoy :)',
+    ], [
+        butter,
+        powderedSugar,
     ]),
 ];
