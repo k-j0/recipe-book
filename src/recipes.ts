@@ -1050,4 +1050,21 @@ export const recipes = [
         butter,
         powderedSugar,
     ]),
+    new Recipe('Cookies', Recipe.Category.Dessert, [
+        flour.g(240)
+            .and(sugar.g(135))
+            .and(bakingPowder.tsp(1))
+            .and(salt)
+            .and(oatMilk.tbsp(8))
+            .and(cookingOil.tbsp(4))
+            .and(vanillaExtract.tsp(1))
+            .and(chocolateChips.g(100))
+            .addTo('a mixing bowl and stir until a sticky dough forms'),
+        'Preheat oven to 160°C',
+        'Transfer dough to a smaller bowl and place it in the freezer for 15 mins',
+        'Form into small balls with a small dent in the centre and lay out onto 2 baking trays (expect 2×9 cookies)',
+        'Bake for 13 mins',
+        'Leave out to cool for at least 15 mins',
+        'Serve & enjoy :)',
+    ]),
 ];
