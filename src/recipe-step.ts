@@ -23,13 +23,7 @@ export class AddIngredientsStep extends RecipeStep {
     }
     
     override toString () {
-        return `Add ${StringUtils.join(this.ingredients.map(ingredient => {
-            if (ingredient.qty !== null && ingredient.qty[1] === Ingredient.QtyUnit.Pcs && ingredient.qty[0] !== 1) {
-                return ingredient.name + 's';
-            } else {
-                return ingredient.name;
-            }
-        }))} to ${this.to}`;
+        return `Add ${StringUtils.join(this.ingredients.map(ingredient => ingredient.toString()))} to ${this.to}`;
     }
     
 }

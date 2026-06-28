@@ -1,5 +1,5 @@
 
-import { apple, aubergine, bakedBeans, bakingPowder, bayLeaf, bellPepper, blackBeans, blackOlives, blackPepper, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, cannelloni, carrot, cauliflower, celery, cheese, cherryTomato, chiliPepper, chiliPowder, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coconutOil, coffee, cookingOil, corianderPowder, corianderSeeds, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lettuce, limeJuice, linSeeds, mapleSyrup, mayo, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, asparagus, aubergine, avocado, bakedBeans, bakingPowder, balsamicVinegar, bayLeaf, bellPepper, blackBeans, blackOlives, blackPepper, blueberry, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, cannelloni, carrot, cauliflower, celery, cheese, cherryTomato, chiliFlakes, chiliPepper, chiliPowder, chineseAubergine, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coconutOil, coffee, cookingOil, corianderPowder, corianderSeeds, corn, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, earlGrey, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOlives, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lemonZest, lettuce, limeJuice, linSeeds, mapleSyrup, mayo, msg, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, strawberry, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegegel, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 const cornRoti =  new Recipe('Corn Roti', Recipe.Category.Side, [
@@ -141,9 +141,9 @@ export const recipes = [
         onion.take(1).chopped().addTo('pot and cook until soft'),
         celery.take(1, 'bunch').chopped()
             .and(garlic.take(3, 'cloves').minced())
-            .and(apple.take(1).chopped())
+            .and(apple.take(0.5).chopped())
             .and(ginger.tbsp(2).minced())
-            .addTo('pot aand cook until soft'),
+            .addTo('pot and cook until soft'),
         butterBeans.take(2, 'tins')
             .and(stock.ml(1250))
             .addTo('pot and bring to boil'),
@@ -182,22 +182,31 @@ export const recipes = [
         iceCube.take(10).addTo('pitcher'),
         'Serve & enjoy :)',
     ]),
-    new Recipe('Chocolate Chip Cookies', Recipe.Category.Dessert, [
-        flour.g(120)
-            .and(bakingPowder.tsp(.5))
-            .and(salt.tsp(.25))
-            .and(sugar.g(50))
-            .and(caneSugar.g(45))
-            .and(chocolateChips.g(60))
-            .and(oatMilk.tbsp(2))
-            .and(butter.tbsp(2).melted())
-            .and(vanillaExtract.tsp(.25))
-            .addTo('a mixing bowl, and stir to form a wet dough'),
-        'Freeze or refrigerate until dough is cold',
-        'Preheat oven to 160°C',
-        'Bake 11 mins',
-        'Let cool for 10 mins',
+    new Recipe('Muffins', Recipe.Category.Dessert, [
+        'Preheat oven to 190°C',
+        flour.g(250)
+            .and(sugar.g(150))
+            .and(bakingPowder.tsp(1.5))
+            .and(salt)
+            .addTo('a mixing bowl and whisk together'),
+        butter.g(110).melted()
+            .and(oatMilk.ml(180))
+            .and(vanillaExtract.tsp(2))
+            .addTo('dry ingredients and whisk until smooth'),
+        'Fold filling into batter: either blueberries and lemon zest or chocolate chips, with or without cocoa powder',
+        'Scoop batter into lined muffin tray',
+        sugar.g(30)
+            .and(flour.g(30))
+            .and(butter.g(40))
+            .addTo('a bowl and combine into a sandy texture with fingers to form streusel'),
+        'Add streusel to muffins',
+        'Bake fo 30 mins, then cool completely',
         'Serve & enjoy :)',
+    ], [
+        blueberry.g(150).frozen().optional(),
+        lemonZest.tbsp(2).optional(),
+        cocoaPowder.tbsp(2).optional(),
+        chocolateChips.g(170),
     ]),
     new Recipe('Kakaós Csiga', Recipe.Category.Dessert, [
         sugar.tbsp(1)
@@ -475,14 +484,14 @@ export const recipes = [
             .and(caneSugar.g(250))
             .and(oatMilk.ml(250))
             .and(oatCream.ml(150))
-            .and(cookingOil.ml(100))
+            .and(cookingOil.g(80))
             .and(vanillaExtract.tsp(3))
             .and(rhum.tbsp(5).optional())
             .addTo('a mixing bowl and whisk until well combined'),
         'Grease a cannelé mould with butter',
         'Pour batter into mould',
         'Bake for 10 mins',
-        'Lower oven temperature to 180°C and bake for another 30 mins',
+        'Lower oven temperature to 180°C and bake for another 40 mins',
         'Let cannelés cool down fully',
         'Hold mould upside down over a large plate or chopping board to get cannelés out',
         'Serve & enjoy :)',
@@ -634,7 +643,7 @@ export const recipes = [
         cornRoti,
     ]),
     cornRoti,
-    new Recipe('Foccaccia', Recipe.Category.Side, [
+    new Recipe('Focaccia', Recipe.Category.Side, [
         breadFlour.g(510)
             .and(salt.g(12))
             .and(dryYeast.tsp(2))
@@ -1031,16 +1040,16 @@ export const recipes = [
     ]),
     new Recipe('Bean Brownies', Recipe.Category.Dessert, [
         'Preheat oven to 175°C',
-        linSeeds.tbsp(1)
+        linSeeds.tbsp(2)
             .addTo('a small blender and blend until thoroughly ground'),
-        coconutOil.g(100).melted()
-            .and(blackBeans.take(1, 'tin'))
-            .and(water.tbsp(4))
+        coconutOil.g(200).melted()
+            .and(blackBeans.take(2, 'tins'))
+            .and(water.tbsp(8))
             .addTo('a mixing bowl and blend until smooth'),
-        sugar.g(100)
-            .and(cocoaPowder.g(22))
-            .and(flour.g(60))
-            .and(chocolateChips.g(130))
+        sugar.g(200)
+            .and(cocoaPowder.g(44))
+            .and(flour.g(120))
+            .and(chocolateChips.g(260))
             .addTo('bowl and mix in, alongside ground lin seeds'),
         'Add batter to a buttered baking dish',
         'Bake for 40 mins or until a knife inserted in comes out dry',
@@ -1055,8 +1064,8 @@ export const recipes = [
             .and(sugar.g(135))
             .and(bakingPowder.tsp(1))
             .and(salt)
-            .and(oatMilk.tbsp(8))
-            .and(cookingOil.tbsp(4))
+            .and(oatMilk.g(70))
+            .and(cookingOil.g(23))
             .and(vanillaExtract.tsp(1))
             .and(chocolateChips.g(100))
             .addTo('a mixing bowl and stir until a sticky dough forms'),
@@ -1065,6 +1074,199 @@ export const recipes = [
         'Form into small balls with a small dent in the centre and lay out onto 2 baking trays (expect 2×9 cookies)',
         'Bake for 13 mins',
         'Leave out to cool for at least 15 mins',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Cauliflower Alfredo', Recipe.Category.Meal, [
+        garlic.take(2, 'cloves').addTo('a pan and fry over medium heat until fragrant'),
+        cauliflower.take(1).chopped().and(water).addTo('pan (water should not quite cover cauliflower) and bring to a boil'),
+        'Lower heat to a simmer and cook until soft (approx. 10 mins)',
+        salt.and(blackPepper).addTo('pan and blend until very smooth'),
+        'Serve with pasta and chili flakes & enjoy :)',
+    ], [
+        pasta,
+        chiliFlakes,
+    ]),
+    new Recipe('Grilled veg wraps with black beans', Recipe.Category.Meal, [
+        'Preheat oven',
+        onion.addTo('a pan with oil and cook for a few minutes on medium heat'),
+        garlic.addTo('pan and continue cooking'),
+        blackBeans.take(1, 'tin')
+            .and(tomatoPaste.tbsp(2))
+            .and(mustard.tbsp(1))
+            .and(mapleSyrup.tbsp(1))
+            .and(paprika)
+            .and(chiliPowder)
+            .and(chiliFlakes.optional())
+            .addTo('pan and cook for a further 5 mins'),
+        stock.addTo('pan and bring to a boil, then simmer for 30 mins or so'),
+        asparagus.take(6)
+            .and(onion.chopped())
+            .and(courgette.sliced())
+            .and(mushroom.halved().optional())
+            .and(garlic.minced())
+            .and(cookingOil.tbsp(2))
+            .and(lemonJuice.tbsp(2))
+            .and(mapleSyrup.tbsp(1))
+            .and(salt)
+            .and(blackPepper)
+            .addTo('mixing bowl and toss to coat'),
+        'Transfer veg to baking tray and roast for approx. 10 mins or until slightly charred',
+        'Mash beans',
+        freshCoriander
+            .and(cheese.grated())
+            .and(sourCream)
+            .and(spinach)
+            .addTo('tortillas alongside beans and grilled veg'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Bean and rice salad', Recipe.Category.Meal, [
+        rice.cooked()
+            .and(cherryTomato.halved())
+            .and(corn.take(1, 'tin'))
+            .and(blackBeans.take(1, 'tin'))
+            .and(greenOnion.chopped())
+            .and(freshCoriander.chopped())
+            .and(limeJuice)
+            .and(oliveOil)
+            .and(cumin)
+            .and(garlicPowder)
+            .and(chiliPowder)
+            .and(salt)
+            .and(blackPepper)
+            .addTo('bowl and combine'),
+        'Refrigerate',
+        avocado.chopped().addTo('salad, serve immediately & enjoy :)'),
+    ]),
+    new Recipe('Butter bean spinach pasta', Recipe.Category.Meal, [
+        garlic.take(3, 'cloves').minced()
+            .and(oliveOil)
+            .addTo('a large pot and heat over medium heat until fragrant'),
+        paprika
+            .and(chiliFlakes)
+            .and(butterBeans.take(1, 'tin'))
+            .and(blackPepper)
+            .addTo('pot and stir together'),
+        stock.and(salt).addTo('pot and bring to boil'),
+        pasta.addTo('pot, reduce heat to low, cover, and continue cooking until pasta is almost cooked, stirring frequently and adding liquid if levels get low'),
+        spinach.and(cherryTomato.halved()).addTo('pot and stir through'),
+        'Cook until pasta is cooked and spinach is wilted, then turn off the heat',
+        cheese.grated().addTo('pot'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Panna Cotta', Recipe.Category.Dessert, [
+        cornstarch.tbsp(2)
+            .and(vegegel.tsp(2))
+            .and(oatMilk.tbsp(4))
+            .addTo('a small bowl and stir to combine'),
+        oatMilk.ml(210)
+            .and(sugar.g(50))
+            .addTo('a small pot on medium heat and stir until the sugar dissolves'),
+        coconutMilk.g(200)
+            .and(vanillaExtract.tbsp(1))
+            .and(salt)
+            .addTo('pot and continue to heat until simmering'),
+        'Add cornstarch paste to pot and simmer while continually whisking until thickened a little',
+        'Sieve mixture and distribute amongst 4 ramekins',
+        'Cool for 15 mins then refrigerate for at least 2 hrs',
+        strawberry.g(250).frozen()
+            .and(sugar.g(30))
+            .and(cornstarch.tbsp(1))
+            .and(water.ml(45))
+            .and(limeJuice.tbsp(1))
+            .addTo('a small pot and cook for 5 mins on medium heat, whisking constantly'),
+        'Once thickened, remove from heat',
+        'Cool coulis for 30 mins',
+        'Serve panna cotta with coulis drizzled on top & enjoy :)',
+    ]),
+    new Recipe('Slambuc', Recipe.Category.Meal, [
+        pasta.addTo('large pot with oil and fry while continuously stirring until nicely browned'),
+        redOnion.minced().addTo('pot and stir'),
+        paprika.addTo('pot off the heat'),
+        potato.chopped().and(salt).and(blackPepper).addTo('pot'),
+        'Cover with water and bring to a simmer',
+        soupCube.optional().and(bellPepper.chopped().optional()).and(tomato.chopped().optional()).addTo('pot'),
+        'Cover and simmer until pasta and potatoes are cooked',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Njahi', Recipe.Category.Meal, [
+        'Soak black beans overnight in the fridge',
+        blackBeans.and(water).addTo('a pot and boil vigorously for 10 mins'),
+        'Remove excess foam',
+        bayLeaf.addTo('pot and cover'),
+        'Simmer for 1-2 hrs',
+        cookingOil.and(redOnion.chopped()).addTo('a pot and cook until soft'),
+        turmericPowder
+            .and(curryPowder)
+            .and(cumin)
+            .and(corianderPowder)
+            .and(paprika)
+            .and(blackPepper)
+            .and(salt)
+            .addTo('pot and cook for a bit'),
+        tomatoPaste.addTo('pot and continue cooking'),
+        garlic.and(tomato).and(chiliPepper).addTo('blender and blend together'),
+        'Add tomato mixture to pot and cook for another 10 minutes',
+        'Add cooked beans including liquid to pot',
+        'Mash a few of the beans and cook for another 20 mins',
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Baguette olive & tomato dip', Recipe.Category.Side, [
+        oliveOil
+            .and(balsamicVinegar)
+            .and(cherryTomato.halved())
+            .and(cucumber.chopped())
+            .and(greenOlives.halved())
+            .and(redOnion.chopped())
+            .and(chiliFlakes)
+            .and(garlic.minced())
+            .and(freshParsley.chopped())
+            .and(salt)
+            .and(blackPepper)
+            .addTo('bowl and stir to combine'),
+        'Serve with sliced baguette & enjoy :)',
+    ]),
+    new Recipe('Cold brew tea', Recipe.Category.Drink, [
+        'Add loose black tea, a slice of citrus (e.g. lemon), sliced fruit (apple or berries), and basil or mint leaves to a jar',
+        'Fill with water, shake to combine and refrigerate overnight',
+        'Strain out solids',
+        'Serve & enjoy :)',
+    ], [
+        earlGrey,
+        lemon.take(1, 'slice'),
+        apple.sliced().optional(),
+        strawberry.halved().optional(),
+        freshBasil.optional(),
+        freshMint.optional(),
+    ]),
+    new Recipe('Barbecued chinese aubergine', Recipe.Category.Meal, [
+        'Preheat oven to 220°C',
+        chineseAubergine.take(2).addTo('baking tray lined with aluminium foil and coat with oil'),
+        'Roast until tender (approx. 20-25 mins)',
+        garlic.take(8, 'cloves').minced()
+            .and(chiliPepper.take(1).sliced())
+            .and(coconutAminos.tbsp(3))
+            .and(sugar.tsp(2))
+            .and(msg.tsp(1))
+            .addTo('a bowl'),
+        'Heat 3 tbsp oil and pour onto chili-garlic mix and stir well',
+        'Split aubergines in half (not all the way through) and spoon sauce in',
+        'Roast for an additional 10 mins',
+        'Let cool slightly',
+        greenOnion.chopped().addTo('aubergines'),
+        'Serve & enjoy :)',
+    ]),
+    new Recipe('Sunomono', Recipe.Category.Side, [
+        cucumber.take(3).sliced().addTo('a bowl (slice very thinly and ideally use Japanese or Persian cucumbers, or sub for one european cucumber)'),
+        salt.tsp(2).addTo('cucumbers and toss to cover evenly'),
+        'Let sit for 10 mins',
+        'Rinse cucumbers in a sieve',
+        'Squeeze hard(!) to draw out excess moisture',
+        riceVinegar.tbsp(3)
+            .and(sugar.tbsp(2))
+            .and(salt)
+            .and(coconutAminos.tsp(1))
+            .addTo('cucumbers'),
+        'Marinate for at least an hour, or overnight, in the fridge',
         'Serve & enjoy :)',
     ]),
 ];

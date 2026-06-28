@@ -58,6 +58,10 @@ export class Ingredient {
         return this.withState(Ingredient.State.IceCold);
     }
     
+    frozen () {
+        return this.withState(Ingredient.State.Frozen);
+    }
+    
     melted () {
         return this.withState(Ingredient.State.Melted);
     }
@@ -151,6 +155,9 @@ export class Ingredient {
                 case Ingredient.State.IceCold:
                     ret += 'ice-cold ';
                     break;
+                case Ingredient.State.Frozen:
+                    ret += 'frozen ';
+                    break;
                 case Ingredient.State.Melted:
                     ret += 'melted ';
                     break;
@@ -208,6 +215,7 @@ export namespace Ingredient {
         Cooked,
         Juiced,
         IceCold,
+        Frozen,
         Melted,
         Pierced,
         Shredded,
