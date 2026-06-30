@@ -61,6 +61,7 @@ export const rhubarb = ingr('rhubarb');
 export const raspberry = ingr('raspberry');
 export const blueberry = ingr('blueberry');
 export const strawberry = ingr('strawberry');
+export const peach = ingr('peach');
 export const lemon = ingr('lemon');
 export const lemonZest = ingr('lemon zest');
 export const lemonJuice = ingr('lemon juice');
@@ -72,6 +73,7 @@ export const coconutMilk = ingr('coconut milk');
 export const sourCream = ingr('sour cream');
 export const cheese = ingr('cheese');
 export const custard = ingr('custard');
+export const greekYoghurt = ingr('greek yoghurt');
 
 export const pasta = ingr('pasta');
 export const noodles = ingr('noodles');
@@ -79,6 +81,7 @@ export const spaghetti = ingr('spaghetti');
 export const cannelloni = ingr('cannelloni');
 export const rice = ingr('rice');
 export const sushiRice = ingr('sushi rice');
+export const glutinousRice = ingr('glutinous rice');
 export const couscous = ingr('couscous');
 export const quinoa = ingr('quinoa');
 
@@ -136,6 +139,7 @@ export const msg = ingr('MSG');
 
 export const bread = ingr('bread');
 export const burgerBuns = ingr('burger buns');
+export const tortillas = ingr('tortillas');
 
 export const soupCube = ingr('soup cube');
 export const stock = ingr('stock');

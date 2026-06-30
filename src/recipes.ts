@@ -1,5 +1,5 @@
 
-import { apple, asparagus, aubergine, avocado, bakedBeans, bakingPowder, balsamicVinegar, bayLeaf, bellPepper, blackBeans, blackOlives, blackPepper, blueberry, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, cannelloni, carrot, cauliflower, celery, cheese, cherryTomato, chiliFlakes, chiliPepper, chiliPowder, chineseAubergine, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coconutOil, coffee, cookingOil, corianderPowder, corianderSeeds, corn, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, earlGrey, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, greenOlives, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lemonZest, lettuce, limeJuice, linSeeds, mapleSyrup, mayo, msg, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, strawberry, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, turmericPowder, vanillaExtract, vegegel, vegeta, vinegar, water } from "./ingredients.ts";
+import { apple, asparagus, aubergine, avocado, bakedBeans, bakingPowder, balsamicVinegar, bayLeaf, bellPepper, blackBeans, blackOlives, blackPepper, blueberry, bokChoy, bread, breadFlour, broccoli, broccolini, brownBeans, burgerBuns, burritoSeasoning, butter, butterBeans, cabbage, caneSugar, cannelliniBeans, cannelloni, carrot, cauliflower, celery, cheese, cherryTomato, chiliFlakes, chiliPepper, chiliPowder, chineseAubergine, chineseCabbage, chocolateChips, choppedTomatoes, cocoaPowder, coconutAminos, coconutMilk, coconutOil, coffee, cookingOil, corianderPowder, corianderSeeds, corn, cornstarch, courgette, couscous, cucumber, cumin, cuminSeeds, curryPowder, custard, driedParsley, driedThyme, dryYeast, earlGrey, flour, freshBasil, freshCoriander, freshDill, freshMint, freshParsley, freshRosemary, garlic, garlicPowder, ginger, glutinousRice, greekYoghurt, greenOlives, greenOnion, iceCube, kale, ketchup, kidneyBeans, kimchi, lemon, lemonJuice, lemonZest, lettuce, limeJuice, linSeeds, mapleSyrup, mayo, msg, mushroom, mushroomPatty, mustard, noodles, nori, nutritionalYeast, oatCream, oatMilk, oliveOil, onion, onionPowder, oregano, paprika, pasta, peach, pear, pickles, pieDough, pintoBeans, potato, powderedSugar, raspberry, redOnion, rhubarb, rhum, rice, riceVinegar, rostadLök, salt, seaSalt, seitan, semolina, shiitake, shreddedCoconut, soupCube, sourCream, spaghetti, spinach, sriracha, stock, strawberry, sugar, sundriedTomatoes, sunflowerSeeds, sushiRice, tomato, tomatoPaste, tomatoSauce, tortillas, turmericPowder, vanillaExtract, vegegel, vegeta, vinegar, water } from "./ingredients.ts";
 import { Recipe } from "./recipe.ts";
 
 const cornRoti =  new Recipe('Corn Roti', Recipe.Category.Side, [
@@ -34,6 +34,36 @@ const pesto = new Recipe('Pesto', Recipe.Category.Side, [
         .and(salt)
         .and(blackPepper)
         .addTo('blender and blend until smooth, adding more water, oil, or sunflower seeds to reach desired consistency'),
+    'Serve & enjoy :)',
+]);
+
+const falafels = new Recipe('Falafels', Recipe.Category.Side, [
+    butterBeans.take(2, 'tins')
+        .and(freshCoriander.take(1, 'bunch'))
+        .and(freshParsley.take(0.5, 'bunches'))
+        .and(garlic.take(6, 'cloves'))
+        .and(redOnion.chopped())
+        .and(flour.tbsp(3))
+        .and(lemonJuice.tbsp(2))
+        .and(cumin.tsp(2))
+        .and(paprika.tsp(1))
+        .and(salt)
+        .and(blackPepper)
+        .addTo('mixing bowl and blend to form a chunk paste'),
+    'Divide into balls and fry',
+    'Serve & enjoy :)',
+]);
+
+const tzatziki = new Recipe('Tzatziki', Recipe.Category.Side, [
+    cucumber.take(1).grated()
+        .and(greekYoghurt.g(300))
+        .and(garlic.take(2, 'cloves').minced())
+        .and(lemonJuice.tbsp(6))
+        .and(freshParsley.tbsp(2).minced())
+        .and(oliveOil.tsp(3))
+        .and(salt)
+        .and(blackPepper)
+        .addTo('bowl and combine'),
     'Serve & enjoy :)',
 ]);
 
@@ -1269,4 +1299,69 @@ export const recipes = [
         'Marinate for at least an hour, or overnight, in the fridge',
         'Serve & enjoy :)',
     ]),
+    new Recipe('Biko', Recipe.Category.Dessert, [
+        'Soak glutinous rice overnight',
+        'Drain and rinse rice',
+        'Preheat oven to 180°C',
+        coconutMilk.ml(1200).and(water.ml(430)).addTo('a large pot and bring to boil'),
+        glutinousRice.g(800).addTo('pot'),
+        'Reduce to medium heat, simmer for 6-8 mins or until rice is cooked and most of the liquid has been absorbed',
+        'Reduce heat to medium low',
+        caneSugar.g(250).and(salt).addTo('pot and stir constantly for 5 mins; mixture should be very thick and sticky'),
+        'Transfer rice mixture to baking dish',
+        coconutMilk.ml(200).and(caneSugar.g(150)).addTo('a small pot and bring to boil'),
+        'Cook until mixture thickens a little and sugar is dissolved',
+        'Remove from heat and let cool for 5 mins',
+        'Pour caramel over rice mixture',
+        'Bake for 1 hr; top should be golden brown and crispy',
+        'Let cool',
+        'Serve & enjoy :)',
+    ]),
+    falafels,
+    tzatziki,
+    new Recipe('Falafel tacos', Recipe.Category.Meal, [
+        'Follow recipe for falafel mixture',
+        'Heat oil in a pan',
+        'Spread approx. 1/8 falafel mixture onto small tortilla',
+        'Once pan is hot, place tortilla face down (falafel mixture on the bottom) in the pan and flatten with a pot lid',
+        'Fry for 3-4 mins, flip and fry for 30 seconds',
+        'Repeat to desired quantity',
+        cucumber.chopped()
+            .and(tomato.chopped())
+            .and(redOnion.chopped())
+            .and(oliveOil)
+            .and(vinegar)
+            .and(salt)
+            .addTo('bowl and combine'),
+        'Assemble tacos by adding cucumber tomato salad, lettuce, and tzatziki',
+        'Serve & enjoy :)',
+    ], [
+        falafels,
+        tortillas.take(8),
+        lettuce.chopped(),
+        tzatziki,
+    ]),
+    new Recipe('Peach Sticky Rice', Recipe.Category.Dessert, [
+        'Rinse rice',
+        glutinousRice.g(200)
+            .and(water.ml(240))
+            .addTo('pot and soak for an hour'),
+        water.ml(180)
+            .and(coconutMilk.take(0.25, 'tins'))
+            .and(salt)
+            .and(caneSugar.tbsp(1))
+            .addTo('rice and stir through'),
+        'Bring to a gentle boil, cover partially, and turn heat to medium low',
+        'Simmer for 20 mins or until all the water has been absorbed',
+        'Remote from heat, cover, and let rest for 10 mins',
+        coconutMilk.take(0.75, 'tins')
+            .and(caneSugar.g(50))
+            .and(salt)
+            .and(vanillaExtract)
+            .addTo('a pot and warm for 5 mins over medium heat'),
+        cornstarch.tsp(2).and(water.tbsp(2)).addTo('a bowl and mix to dissolve'),
+        'Add cornstarch mixture to sauce and stir to thicken slightly, turning heat to low',
+        'Remove from heat once thickened',
+        'Serve rice in bowls, scoop sauce over it, and add peach slives, & enjoy :)',
+    ], [peach.sliced()]),
 ];
