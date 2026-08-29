@@ -1364,4 +1364,24 @@ export const recipes = [
         'Remove from heat once thickened',
         'Serve rice in bowls, scoop sauce over it, and add peach slives, & enjoy :)',
     ], [peach.sliced()]),
+    new Recipe('Green Curry', Recipe.Category.Meal, [
+        cookingOil
+            .and(onion.chopped())
+            .and(ginger.minced())
+            .addTo('a wok and cook for a few minutes'),
+        garlic.minced()
+            .and(coconutMilk)
+            .and(stock)
+            .and(limeJuice)
+            .addTo('wok and simmer'),
+        broccolini
+            .addTo('a small pot and blanch (approx. 4 minutes)'),
+        'Transfer coconut sauce to a large bowl or pot',
+        freshBasil.and(freshCoriander)
+            .addTo('sauce and blend until smooth'),
+        butterBeans
+            .addTo('wok alongside broccolini and sauce, and warm through'),
+        chiliPepper.sliced().addTo('wok'),
+        'Serve with rice & enjoy :)',
+    ], [rice]),
 ];
